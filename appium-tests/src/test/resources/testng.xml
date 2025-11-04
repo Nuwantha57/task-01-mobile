@@ -5,4 +5,21 @@
             <class name="com.mobile.tests.LoginTest"/>
         </classes>
     </test>
+    
+    <test name="Registration Tests">
+        <classes>
+            <class name="com.mobile.tests.RobustRegistrationTest"/>
+            <class name="com.mobile.tests.RegistrationTest"/>
+            <class name="com.mobile.tests.EmailVerificationTest"/>
+            <class name="com.mobile.tests.RegistrationIntegrationTest"/>
+        </classes>
+    </test>
+    
+    <test name="Password Reset Tests">
+        <classes>
+            <class name="com.mobile.tests.PasswordResetTest"/>
+            <class name="com.mobile.tests.ResetPasswordFormTest"/>
+            <class name="com.mobile.tests.PasswordResetIntegrationTest"/>
+        </classes>
+    </test>
 </suite>
