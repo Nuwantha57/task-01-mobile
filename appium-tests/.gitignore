@@ -1,0 +1,25 @@
+# Appium Test Automation - Ignore compiled files
+target/
+*.class
+*.log
+*.jar
+*.war
+*.ear
+
+# Maven
+.mvn/
+mvnw
+mvnw.cmd
+
+# IDE
+.idea/
+*.iml
+.vscode/
+.settings/
+.project
+.classpath
+
+# Test Reports
+test-output/
+allure-results/
+screenshots/

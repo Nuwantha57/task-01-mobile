@@ -87,6 +87,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: const Key('homeScreen'),
       appBar: AppBar(
         title: const Text('Dashboard'),
         actions: [
