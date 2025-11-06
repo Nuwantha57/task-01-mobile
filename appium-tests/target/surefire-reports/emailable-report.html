@@ -1,0 +1,159 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "https://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="https://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+<title>TestNG Report</title>
+<style type="text/css">table {margin-bottom:10px;border-collapse:collapse;empty-cells:show}th,td {border:1px solid #009;padding:.25em .5em}th {vertical-align:bottom}td {vertical-align:top}table a {font-weight:bold}.stripe td {background-color: #E6EBF9}.num {text-align:right}.passedodd td {background-color: #3F3}.passedeven td {background-color: #0A0}.skippedodd td {background-color: #DDD}.skippedeven td {background-color: #CCC}.failedodd td,.attn {background-color: #F33}.failedeven td,.stripe .attn {background-color: #D00}.stacktrace {white-space:pre;font-family:monospace}.totop {font-size:85%;text-align:center;border-bottom:2px solid #000}.invisible {display:none}</style>
+</head>
+<body>
+<table>
+<tr><th>Test</th><th># Passed</th><th># Skipped</th><th># Retried</th><th># Failed</th><th>Time (ms)</th><th>Included Groups</th><th>Excluded Groups</th></tr>
+<tr><th colspan="8">Staff Auth Mobile - MFA Test Suite</th></tr>
+<tr><td><a href="#t0">MFA Functionality Tests</a></td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num attn">10</td><td class="num">191,085</td><td></td><td></td></tr>
+</table>
+<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Staff Auth Mobile - MFA Test Suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">MFA Functionality Tests &#8212; failed</th></tr><tr class="failedeven"><td rowspan="10">com.mobile.tests.MfaTest</td><td><a href="#m0">testLoginWithMfaExpiredCode</a></td><td rowspan="1">1762424250158</td><td rowspan="1">20944</td></tr><tr class="failedeven"><td><a href="#m1">testLoginWithMfaInvalidCode</a></td><td rowspan="1">1762424229437</td><td rowspan="1">20714</td></tr><tr class="failedeven"><td><a href="#m2">testLoginWithMfaValidCode</a></td><td rowspan="1">1762424208584</td><td rowspan="1">20847</td></tr><tr class="failedeven"><td><a href="#m3">testMfaCodeFieldValidation</a></td><td rowspan="1">1762424292258</td><td rowspan="1">16713</td></tr><tr class="failedeven"><td><a href="#m4">testMfaRetryAfterFailures</a></td><td rowspan="1">1762424271105</td><td rowspan="1">21148</td></tr><tr class="failedeven"><td><a href="#m5">testMfaSetupWithInvalidCode</a></td><td rowspan="1">1762424185208</td><td rowspan="1">11606</td></tr><tr class="failedeven"><td><a href="#m6">testMfaSetupWithValidCode</a></td><td rowspan="1">1762424196829</td><td rowspan="1">11749</td></tr><tr class="failedeven"><td><a href="#m7">testNavigateToMfaSetup</a></td><td rowspan="1">1762424140476</td><td rowspan="1">23912</td></tr><tr class="failedeven"><td><a href="#m8">testQrCodeAndSecretKeyDisplayed</a></td><td rowspan="1">1762424164402</td><td rowspan="1">20804</td></tr><tr class="failedeven"><td><a href="#m9">testSetupMfaButtonAfterEnabled</a></td><td rowspan="1">1762424308976</td><td rowspan="1">152</td></tr></tbody>
+</table>
+<h2>MFA Functionality Tests</h2><h3 id="m0">com.mobile.tests.MfaTest#testLoginWithMfaExpiredCode</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">org.openqa.selenium.TimeoutException: Expected condition failed: waiting for element to be clickable: By.xpath: //android.widget.EditText[@hint=&apos;123456&apos; or contains(@text, &apos;MFA Code&apos;)] (tried for 15 second(s) with 500 milliseconds interval)
+Build info: version: &apos;4.13.0&apos;, revision: &apos;ba948ece5b*&apos;
+System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;21.0.8&apos;
+Driver info: io.appium.java_client.android.AndroidDriver
+Capabilities {appium:app: C:/Intern_Project_Code/task..., appium:appActivity: com.example.staff_auth_mobi..., appium:appPackage: com.example.staff_auth_mobile, appium:automationName: UiAutomator2, appium:databaseEnabled: false, appium:desired: {app: C:/Intern_Project_Code/task..., automationName: UiAutomator2, deviceName: emulator-5554, fullReset: false, newCommandTimeout: 300, noReset: true, platformName: ANDROID, platformVersion: 16}, appium:deviceApiLevel: 36, appium:deviceManufacturer: Google, appium:deviceModel: sdk_gphone64_x86_64, appium:deviceName: emulator-5554, appium:deviceScreenDensity: 420, appium:deviceScreenSize: 1080x2400, appium:deviceUDID: emulator-5554, appium:fullReset: false, appium:javascriptEnabled: true, appium:locationContextEnabled: false, appium:networkConnectionEnabled: true, appium:newCommandTimeout: 300, appium:noReset: true, appium:pixelRatio: 2.625, appium:platformVersion: 16, appium:statBarHeight: 63, appium:takesScreenshot: true, appium:viewportRect: {height: 2337, left: 0, top: 63, width: 1080}, appium:warnings: {}, appium:webStorageEnabled: false, platformName: ANDROID}
+Session ID: bb04a889-02a4-4a59-83fd-4030c01b620b
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:230)
+	at com.mobile.pages.MfaConfirmationPage.getMfaCodeField(MfaConfirmationPage.java:48)
+	at com.mobile.pages.MfaConfirmationPage.enterMfaCode(MfaConfirmationPage.java:86)
+	at com.mobile.tests.MfaTest.testLoginWithMfaExpiredCode(MfaTest.java:177)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+... Removed 29 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m1">com.mobile.tests.MfaTest#testLoginWithMfaInvalidCode</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">org.openqa.selenium.TimeoutException: Expected condition failed: waiting for element to be clickable: AppiumBy.accessibilityId: logout (tried for 15 second(s) with 500 milliseconds interval)
+Build info: version: &apos;4.13.0&apos;, revision: &apos;ba948ece5b*&apos;
+System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;21.0.8&apos;
+Driver info: io.appium.java_client.android.AndroidDriver
+Capabilities {appium:app: C:/Intern_Project_Code/task..., appium:appActivity: com.example.staff_auth_mobi..., appium:appPackage: com.example.staff_auth_mobile, appium:automationName: UiAutomator2, appium:databaseEnabled: false, appium:desired: {app: C:/Intern_Project_Code/task..., automationName: UiAutomator2, deviceName: emulator-5554, fullReset: false, newCommandTimeout: 300, noReset: true, platformName: ANDROID, platformVersion: 16}, appium:deviceApiLevel: 36, appium:deviceManufacturer: Google, appium:deviceModel: sdk_gphone64_x86_64, appium:deviceName: emulator-5554, appium:deviceScreenDensity: 420, appium:deviceScreenSize: 1080x2400, appium:deviceUDID: emulator-5554, appium:fullReset: false, appium:javascriptEnabled: true, appium:locationContextEnabled: false, appium:networkConnectionEnabled: true, appium:newCommandTimeout: 300, appium:noReset: true, appium:pixelRatio: 2.625, appium:platformVersion: 16, appium:statBarHeight: 63, appium:takesScreenshot: true, appium:viewportRect: {height: 2337, left: 0, top: 63, width: 1080}, appium:warnings: {}, appium:webStorageEnabled: false, platformName: ANDROID}
+Session ID: bb04a889-02a4-4a59-83fd-4030c01b620b
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:230)
+	at com.mobile.pages.HomePage.getLogoutButton(HomePage.java:56)
+	at com.mobile.pages.HomePage.clickLogout(HomePage.java:124)
+	at com.mobile.tests.MfaTest.testLoginWithMfaInvalidCode(MfaTest.java:148)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+... Removed 29 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m2">com.mobile.tests.MfaTest#testLoginWithMfaValidCode</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">org.openqa.selenium.TimeoutException: Expected condition failed: waiting for element to be clickable: AppiumBy.accessibilityId: logout (tried for 15 second(s) with 500 milliseconds interval)
+Build info: version: &apos;4.13.0&apos;, revision: &apos;ba948ece5b*&apos;
+System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;21.0.8&apos;
+Driver info: io.appium.java_client.android.AndroidDriver
+Capabilities {appium:app: C:/Intern_Project_Code/task..., appium:appActivity: com.example.staff_auth_mobi..., appium:appPackage: com.example.staff_auth_mobile, appium:automationName: UiAutomator2, appium:databaseEnabled: false, appium:desired: {app: C:/Intern_Project_Code/task..., automationName: UiAutomator2, deviceName: emulator-5554, fullReset: false, newCommandTimeout: 300, noReset: true, platformName: ANDROID, platformVersion: 16}, appium:deviceApiLevel: 36, appium:deviceManufacturer: Google, appium:deviceModel: sdk_gphone64_x86_64, appium:deviceName: emulator-5554, appium:deviceScreenDensity: 420, appium:deviceScreenSize: 1080x2400, appium:deviceUDID: emulator-5554, appium:fullReset: false, appium:javascriptEnabled: true, appium:locationContextEnabled: false, appium:networkConnectionEnabled: true, appium:newCommandTimeout: 300, appium:noReset: true, appium:pixelRatio: 2.625, appium:platformVersion: 16, appium:statBarHeight: 63, appium:takesScreenshot: true, appium:viewportRect: {height: 2337, left: 0, top: 63, width: 1080}, appium:warnings: {}, appium:webStorageEnabled: false, platformName: ANDROID}
+Session ID: bb04a889-02a4-4a59-83fd-4030c01b620b
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:230)
+	at com.mobile.pages.HomePage.getLogoutButton(HomePage.java:56)
+	at com.mobile.pages.HomePage.clickLogout(HomePage.java:124)
+	at com.mobile.tests.MfaTest.testLoginWithMfaValidCode(MfaTest.java:116)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+... Removed 29 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m3">com.mobile.tests.MfaTest#testMfaCodeFieldValidation</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">org.openqa.selenium.WebDriverException: Could not proxy command to the remote server. Original error: socket hang up
+Build info: version: &apos;4.13.0&apos;, revision: &apos;ba948ece5b*&apos;
+System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;21.0.8&apos;
+Driver info: io.appium.java_client.android.AndroidDriver
+Command: [bb04a889-02a4-4a59-83fd-4030c01b620b, findElement {using=accessibility id, value=logout}]
+Capabilities {appium:app: C:/Intern_Project_Code/task..., appium:appActivity: com.example.staff_auth_mobi..., appium:appPackage: com.example.staff_auth_mobile, appium:automationName: UiAutomator2, appium:databaseEnabled: false, appium:desired: {app: C:/Intern_Project_Code/task..., automationName: UiAutomator2, deviceName: emulator-5554, fullReset: false, newCommandTimeout: 300, noReset: true, platformName: ANDROID, platformVersion: 16}, appium:deviceApiLevel: 36, appium:deviceManufacturer: Google, appium:deviceModel: sdk_gphone64_x86_64, appium:deviceName: emulator-5554, appium:deviceScreenDensity: 420, appium:deviceScreenSize: 1080x2400, appium:deviceUDID: emulator-5554, appium:fullReset: false, appium:javascriptEnabled: true, appium:locationContextEnabled: false, appium:networkConnectionEnabled: true, appium:newCommandTimeout: 300, appium:noReset: true, appium:pixelRatio: 2.625, appium:platformVersion: 16, appium:statBarHeight: 63, appium:takesScreenshot: true, appium:viewportRect: {height: 2337, left: 0, top: 63, width: 1080}, appium:warnings: {}, appium:webStorageEnabled: false, platformName: ANDROID}
+Session ID: bb04a889-02a4-4a59-83fd-4030c01b620b
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:52)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:191)
+	at io.appium.java_client.remote.AppiumCommandExecutor.execute(AppiumCommandExecutor.java:250)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:602)
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:359)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:353)
+	at org.openqa.selenium.support.ui.ExpectedConditions$7.apply(ExpectedConditions.java:194)
+	at org.openqa.selenium.support.ui.ExpectedConditions$7.apply(ExpectedConditions.java:190)
+	at org.openqa.selenium.support.ui.ExpectedConditions$22.apply(ExpectedConditions.java:627)
+	at org.openqa.selenium.support.ui.ExpectedConditions$22.apply(ExpectedConditions.java:624)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:205)
+	at com.mobile.pages.HomePage.getLogoutButton(HomePage.java:56)
+	at com.mobile.pages.HomePage.clickLogout(HomePage.java:124)
+	at com.mobile.tests.MfaTest.testMfaCodeFieldValidation(MfaTest.java:208)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+... Removed 32 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m4">com.mobile.tests.MfaTest#testMfaRetryAfterFailures</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">org.openqa.selenium.TimeoutException: Expected condition failed: waiting for element to be clickable: By.xpath: //android.widget.EditText[@hint=&apos;123456&apos; or contains(@text, &apos;MFA Code&apos;)] (tried for 15 second(s) with 500 milliseconds interval)
+Build info: version: &apos;4.13.0&apos;, revision: &apos;ba948ece5b*&apos;
+System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;21.0.8&apos;
+Driver info: io.appium.java_client.android.AndroidDriver
+Capabilities {appium:app: C:/Intern_Project_Code/task..., appium:appActivity: com.example.staff_auth_mobi..., appium:appPackage: com.example.staff_auth_mobile, appium:automationName: UiAutomator2, appium:databaseEnabled: false, appium:desired: {app: C:/Intern_Project_Code/task..., automationName: UiAutomator2, deviceName: emulator-5554, fullReset: false, newCommandTimeout: 300, noReset: true, platformName: ANDROID, platformVersion: 16}, appium:deviceApiLevel: 36, appium:deviceManufacturer: Google, appium:deviceModel: sdk_gphone64_x86_64, appium:deviceName: emulator-5554, appium:deviceScreenDensity: 420, appium:deviceScreenSize: 1080x2400, appium:deviceUDID: emulator-5554, appium:fullReset: false, appium:javascriptEnabled: true, appium:locationContextEnabled: false, appium:networkConnectionEnabled: true, appium:newCommandTimeout: 300, appium:noReset: true, appium:pixelRatio: 2.625, appium:platformVersion: 16, appium:statBarHeight: 63, appium:takesScreenshot: true, appium:viewportRect: {height: 2337, left: 0, top: 63, width: 1080}, appium:warnings: {}, appium:webStorageEnabled: false, platformName: ANDROID}
+Session ID: bb04a889-02a4-4a59-83fd-4030c01b620b
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:230)
+	at com.mobile.pages.MfaConfirmationPage.getMfaCodeField(MfaConfirmationPage.java:48)
+	at com.mobile.pages.MfaConfirmationPage.enterMfaCode(MfaConfirmationPage.java:86)
+	at com.mobile.tests.MfaTest.testMfaRetryAfterFailures(MfaTest.java:194)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+... Removed 29 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m5">com.mobile.tests.MfaTest#testMfaSetupWithInvalidCode</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">org.openqa.selenium.NoSuchElementException: An element could not be located on the page using the given search parameters.
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: &apos;4.13.0&apos;, revision: &apos;ba948ece5b*&apos;
+System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;21.0.8&apos;
+Driver info: io.appium.java_client.android.AndroidDriver
+Command: [bb04a889-02a4-4a59-83fd-4030c01b620b, findElement {using=-android uiautomator, value=new UiScrollable(new UiSelector().scrollable(true)).scrollIntoView(new UiSelector().textContains(&quot;Enter Verification Code&quot;))}]
+Capabilities {appium:app: C:/Intern_Project_Code/task..., appium:appActivity: com.example.staff_auth_mobi..., appium:appPackage: com.example.staff_auth_mobile, appium:automationName: UiAutomator2, appium:databaseEnabled: false, appium:desired: {app: C:/Intern_Project_Code/task..., automationName: UiAutomator2, deviceName: emulator-5554, fullReset: false, newCommandTimeout: 300, noReset: true, platformName: ANDROID, platformVersion: 16}, appium:deviceApiLevel: 36, appium:deviceManufacturer: Google, appium:deviceModel: sdk_gphone64_x86_64, appium:deviceName: emulator-5554, appium:deviceScreenDensity: 420, appium:deviceScreenSize: 1080x2400, appium:deviceUDID: emulator-5554, appium:fullReset: false, appium:javascriptEnabled: true, appium:locationContextEnabled: false, appium:networkConnectionEnabled: true, appium:newCommandTimeout: 300, appium:noReset: true, appium:pixelRatio: 2.625, appium:platformVersion: 16, appium:statBarHeight: 63, appium:takesScreenshot: true, appium:viewportRect: {height: 2337, left: 0, top: 63, width: 1080}, appium:warnings: {}, appium:webStorageEnabled: false, platformName: ANDROID}
+Session ID: bb04a889-02a4-4a59-83fd-4030c01b620b
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:52)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:191)
+	at io.appium.java_client.remote.AppiumCommandExecutor.execute(AppiumCommandExecutor.java:250)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:602)
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:66)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:359)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:353)
+	at com.mobile.pages.MfaSetupPage.scrollToVerificationSection(MfaSetupPage.java:136)
+	at com.mobile.pages.MfaSetupPage.enterVerificationCode(MfaSetupPage.java:176)
+	at com.mobile.tests.MfaTest.testMfaSetupWithInvalidCode(MfaTest.java:69)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+... Removed 32 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m6">com.mobile.tests.MfaTest#testMfaSetupWithValidCode</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.AssertionError: Secret key should be available expected object to not be null
+	at com.mobile.tests.MfaTest.testMfaSetupWithValidCode(MfaTest.java:85)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+... Removed 31 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m7">com.mobile.tests.MfaTest#testNavigateToMfaSetup</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.AssertionError: Login page should be displayed expected [true] but found [false]
+	at com.mobile.tests.MfaTest.testNavigateToMfaSetup(MfaTest.java:22)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+... Removed 32 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m8">com.mobile.tests.MfaTest#testQrCodeAndSecretKeyDisplayed</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.AssertionError: QR code should be displayed expected [true] but found [false]
+	at com.mobile.tests.MfaTest.testQrCodeAndSecretKeyDisplayed(MfaTest.java:48)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+... Removed 32 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m9">com.mobile.tests.MfaTest#testSetupMfaButtonAfterEnabled</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">org.openqa.selenium.WebDriverException: Could not proxy command to the remote server. Original error: socket hang up
+Build info: version: &apos;4.13.0&apos;, revision: &apos;ba948ece5b*&apos;
+System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;21.0.8&apos;
+Driver info: io.appium.java_client.android.AndroidDriver
+Command: [bb04a889-02a4-4a59-83fd-4030c01b620b, findElement {using=xpath, value=//android.widget.EditText[@hint=&apos;123456&apos; or contains(@text, &apos;MFA Code&apos;)]}]
+Capabilities {appium:app: C:/Intern_Project_Code/task..., appium:appActivity: com.example.staff_auth_mobi..., appium:appPackage: com.example.staff_auth_mobile, appium:automationName: UiAutomator2, appium:databaseEnabled: false, appium:desired: {app: C:/Intern_Project_Code/task..., automationName: UiAutomator2, deviceName: emulator-5554, fullReset: false, newCommandTimeout: 300, noReset: true, platformName: ANDROID, platformVersion: 16}, appium:deviceApiLevel: 36, appium:deviceManufacturer: Google, appium:deviceModel: sdk_gphone64_x86_64, appium:deviceName: emulator-5554, appium:deviceScreenDensity: 420, appium:deviceScreenSize: 1080x2400, appium:deviceUDID: emulator-5554, appium:fullReset: false, appium:javascriptEnabled: true, appium:locationContextEnabled: false, appium:networkConnectionEnabled: true, appium:newCommandTimeout: 300, appium:noReset: true, appium:pixelRatio: 2.625, appium:platformVersion: 16, appium:statBarHeight: 63, appium:takesScreenshot: true, appium:viewportRect: {height: 2337, left: 0, top: 63, width: 1080}, appium:warnings: {}, appium:webStorageEnabled: false, platformName: ANDROID}
+Session ID: bb04a889-02a4-4a59-83fd-4030c01b620b
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:52)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:191)
+	at io.appium.java_client.remote.AppiumCommandExecutor.execute(AppiumCommandExecutor.java:250)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:602)
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:359)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:353)
+	at org.openqa.selenium.support.ui.ExpectedConditions$7.apply(ExpectedConditions.java:194)
+	at org.openqa.selenium.support.ui.ExpectedConditions$7.apply(ExpectedConditions.java:190)
+	at org.openqa.selenium.support.ui.ExpectedConditions$22.apply(ExpectedConditions.java:627)
+	at org.openqa.selenium.support.ui.ExpectedConditions$22.apply(ExpectedConditions.java:624)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:205)
+	at com.mobile.pages.MfaConfirmationPage.getMfaCodeField(MfaConfirmationPage.java:48)
+	at com.mobile.pages.MfaConfirmationPage.enterMfaCode(MfaConfirmationPage.java:86)
+	at com.mobile.pages.MfaConfirmationPage.submitMfaCode(MfaConfirmationPage.java:149)
+	at com.mobile.tests.MfaTest.testSetupMfaButtonAfterEnabled(MfaTest.java:230)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+... Removed 32 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+</body>
+</html>

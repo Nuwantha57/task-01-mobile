@@ -1,0 +1,8 @@
+com\mobile\utils\TotpGenerator.class
+com\mobile\tests\BaseTest.class
+com\mobile\pages\MfaSetupPage.class
+com\mobile\tests\MfaTest.class
+com\mobile\pages\LoginPage.class
+com\mobile\pages\HomePage.class
+com\mobile\utils\ConfigReader.class
+com\mobile\pages\MfaConfirmationPage.class

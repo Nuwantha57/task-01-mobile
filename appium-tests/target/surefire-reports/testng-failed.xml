@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Staff Auth Mobile - MFA Test Suite]" guice-stage="DEVELOPMENT" verbose="0">
+  <test thread-count="5" name="MFA Functionality Tests(failed)" verbose="0">
+    <classes>
+      <class name="com.mobile.tests.MfaTest">
+        <methods>
+          <include name="testLoginWithMfaExpiredCode"/>
+          <include name="testQrCodeAndSecretKeyDisplayed"/>
+          <include name="setUp"/>
+          <include name="testMfaCodeFieldValidation"/>
+          <include name="tearDown"/>
+          <include name="testMfaSetupWithInvalidCode"/>
+          <include name="testSetupMfaButtonAfterEnabled"/>
+          <include name="testLoginWithMfaInvalidCode"/>
+          <include name="testMfaRetryAfterFailures"/>
+          <include name="testLoginWithMfaValidCode"/>
+          <include name="testMfaSetupWithValidCode"/>
+          <include name="testNavigateToMfaSetup"/>
+        </methods>
+      </class> <!-- com.mobile.tests.MfaTest -->
+    </classes>
+  </test> <!-- MFA Functionality Tests(failed) -->
+</suite> <!-- Failed suite [Staff Auth Mobile - MFA Test Suite] -->
