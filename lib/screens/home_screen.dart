@@ -3,6 +3,7 @@ import '../services/auth_service.dart';
 import '../services/api_service.dart';
 import 'login_screen.dart';
 import 'profile_screen.dart';
+import 'mfa_setup_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -195,6 +196,19 @@ class _HomeScreenState extends State<HomeScreen> {
                                   userData: _userData!,
                                   onUpdate: _loadUserData,
                                 ),
+                              ),
+                            );
+                          },
+                        ),
+                        const SizedBox(height: 12),
+                        _buildActionCard(
+                          icon: Icons.security,
+                          title: 'Setup MFA',
+                          subtitle: 'Enable two-factor authentication',
+                          onTap: () {
+                            Navigator.of(context).push(
+                              MaterialPageRoute(
+                                builder: (_) => const MfaSetupScreen(),
                               ),
                             );
                           },
