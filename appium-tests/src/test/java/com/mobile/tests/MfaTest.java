@@ -22,11 +22,22 @@ public class MfaTest extends BaseTest {
         Assert.assertTrue(loginPage.isLoginPageDisplayed(), "Login page should be displayed");
         
         loginPage.login(ConfigReader.getTestEmail(), ConfigReader.getTestPassword());
-        waitFor(2);
+        // Allow time for network login & navigation
+        waitFor(4);
 
-        // Navigate to home
+        // Navigate to home (fallback to MFA screen if tenant enforces MFA)
         HomePage homePage = new HomePage(driver);
-        Assert.assertTrue(homePage.isHomePageDisplayed(), "Home page should be displayed after login");
+        MfaConfirmationPage mfaConfirmationPage = new MfaConfirmationPage(driver);
+
+        boolean onHome = false;
+        for (int i = 0; i < 5; i++) { // retry for up to ~10s
+            if (homePage.isHomePageDisplayed()) { onHome = true; break; }
+            if (mfaConfirmationPage.isMfaConfirmationPageDisplayed()) {
+                Assert.fail("MFA confirmation is shown after login. Use a non-MFA user for this test or update flow.");
+            }
+            waitFor(2);
+        }
+        Assert.assertTrue(onHome, "Home page should be displayed after login");
 
         // Check if Setup MFA card is visible
         Assert.assertTrue(homePage.isSetupMfaCardVisible(), "Setup MFA card should be visible");

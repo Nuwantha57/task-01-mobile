@@ -24,7 +24,8 @@ public class HomePage {
 
     private WebElement getDashboardTitle() {
         return wait.until(ExpectedConditions.visibilityOfElementLocated(
-            AppiumBy.accessibilityId("Dashboard")));
+            AppiumBy.xpath("//*[@content-desc='Dashboard' or contains(@text,'Dashboard') or contains(@content-desc,'dashboard')]")
+        ));
     }
 
     private WebElement getQuickActionsTitle() {
@@ -53,8 +54,22 @@ public class HomePage {
 
     // Logout button
     private WebElement getLogoutButton() {
-        return wait.until(ExpectedConditions.elementToBeClickable(
-            AppiumBy.accessibilityId("logout")));
+        try {
+            return wait.until(ExpectedConditions.elementToBeClickable(
+                AppiumBy.accessibilityId("logout")
+            ));
+        } catch (Exception e1) {
+            try {
+                return wait.until(ExpectedConditions.elementToBeClickable(
+                    AppiumBy.xpath("//*[@content-desc='Logout' or @text='Logout' or contains(@text,'Log out')]")
+                ));
+            } catch (Exception e2) {
+                // Fallback: any button that looks like logout by text
+                return wait.until(ExpectedConditions.elementToBeClickable(
+                    AppiumBy.xpath("//android.widget.Button[contains(@text,'Logout') or contains(@text,'Log out')]")
+                ));
+            }
+        }
     }
 
     // Refresh button
@@ -173,6 +188,7 @@ public class HomePage {
      */
     public void waitForPageLoad() {
         wait.until(ExpectedConditions.visibilityOfElementLocated(
-            AppiumBy.accessibilityId("Dashboard")));
+            AppiumBy.xpath("//*[@content-desc='Dashboard' or contains(@text,'Dashboard')]")
+        ));
     }
 }

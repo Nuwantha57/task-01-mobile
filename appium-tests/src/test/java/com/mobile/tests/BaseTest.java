@@ -28,8 +28,14 @@ public class BaseTest {
         options.setApp(ConfigReader.getAppPath());
         options.setAutomationName("UiAutomator2");
         options.setNewCommandTimeout(Duration.ofSeconds(300));
-        options.setNoReset(true); // Don't reset app state - keep user logged in
-        options.setFullReset(false); // Don't uninstall app
+        // Start each run from a clean state so tests begin at Login screen
+        options.setNoReset(false);
+        options.setFullReset(false);
+        // Improve app start stability on cold launches
+        try {
+            // These are best-effort; ignore if not supported by this client version
+            options.setAppWaitActivity("*");
+        } catch (Exception ignored) { }
         
         // Initialize driver using URI (non-deprecated way for Java 20+)
         URI appiumUri = new URI(ConfigReader.getAppiumUrl());

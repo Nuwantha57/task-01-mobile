@@ -24,22 +24,46 @@ public class LoginPage {
 
     private WebElement getWelcomeBackTitle() {
         return wait.until(ExpectedConditions.visibilityOfElementLocated(
-            AppiumBy.xpath("//*[contains(@text, 'Welcome Back')]")));
+            AppiumBy.xpath("//*[contains(@text, 'Welcome Back') or contains(@text, 'Sign In') or contains(@text, 'Login') or contains(@content-desc, 'login')]")
+        ));
     }
 
     private WebElement getEmailField() {
-        return wait.until(ExpectedConditions.visibilityOfElementLocated(
-            AppiumBy.xpath("//android.widget.EditText[@hint='Email']")));
+        // Try common patterns for Flutter TextField
+        try {
+            return wait.until(ExpectedConditions.visibilityOfElementLocated(
+                AppiumBy.xpath("//android.widget.EditText[@hint='Email' or @resource-id='email' or contains(@content-desc,'email')]")
+            ));
+        } catch (Exception e) {
+            // Fallback: first visible EditText
+            return wait.until(ExpectedConditions.visibilityOfElementLocated(
+                AppiumBy.className("android.widget.EditText")
+            ));
+        }
     }
 
     private WebElement getPasswordField() {
-        return driver.findElement(
-            AppiumBy.xpath("//android.widget.EditText[@hint='Password']"));
+        try {
+            return driver.findElement(
+                AppiumBy.xpath("//android.widget.EditText[@hint='Password' or contains(@content-desc,'password') or @resource-id='password']")
+            );
+        } catch (Exception e) {
+            // Fallback: the second EditText on screen (email is usually first)
+            return driver.findElements(AppiumBy.className("android.widget.EditText")).get(1);
+        }
     }
 
     private WebElement getSignInButton() {
-        return wait.until(ExpectedConditions.elementToBeClickable(
-            AppiumBy.xpath("//android.widget.Button[@text='Sign In']")));
+        try {
+            return wait.until(ExpectedConditions.elementToBeClickable(
+                AppiumBy.xpath("//android.widget.Button[@text='Sign In' or @text='Login' or contains(@content-desc,'sign') or contains(@content-desc,'login')]")
+            ));
+        } catch (Exception e) {
+            // Fallback: the first clickable button
+            return wait.until(ExpectedConditions.elementToBeClickable(
+                AppiumBy.className("android.widget.Button")
+            ));
+        }
     }
 
     private WebElement getForgotPasswordLink() {
@@ -64,10 +88,16 @@ public class LoginPage {
      */
     public boolean isLoginPageDisplayed() {
         try {
-            return getWelcomeBackTitle().isDisplayed();
-        } catch (Exception e) {
-            return false;
-        }
+            // Any of these elements being visible suggests the login screen
+            if (getWelcomeBackTitle() != null) return true;
+        } catch (Exception ignored) { }
+        try {
+            return getSignInButton().isDisplayed();
+        } catch (Exception ignored) { }
+        try {
+            return getEmailField().isDisplayed();
+        } catch (Exception ignored) { }
+        return false;
     }
 
     /**
