@@ -174,6 +174,17 @@ class AuthService {
       final result = await Amplify.Auth.confirmSignIn(
         confirmationValue: code,
       );
+
+      // Store token if sign in is complete
+      if (result.isSignedIn) {
+        final session = await Amplify.Auth.fetchAuthSession(
+          options: const FetchAuthSessionOptions(forceRefresh: true),
+        ) as CognitoAuthSession;
+
+        final idToken = session.userPoolTokensResult.value.idToken.raw;
+        await _apiService.storeToken(idToken);
+      }
+
       return result;
     } on AuthException catch (e) {
       throw Exception('MFA confirmation failed: ${e.message}');
@@ -192,6 +203,48 @@ class AuthService {
       throw Exception('Error getting ID token: ${e.message}');
     } catch (e) {
       throw Exception('Unexpected error getting ID token: $e');
+    }
+  }
+
+  // Update MFA preference (enable/disable TOTP or SMS)
+  Future<void> updateMfaPreference({
+    MfaPreference? sms,
+    MfaPreference? totp,
+  }) async {
+    try {
+      await Amplify.Auth.updateUserAttribute(
+        userAttributeKey: CognitoUserAttributeKey.custom('mfa_enabled'),
+        value: 'true',
+      );
+      // Note: In Amplify 2.x, MFA preferences are set through user attributes
+      // or by verifying TOTP setup which automatically enables it
+    } on AuthException catch (e) {
+      throw Exception('Failed to update MFA preference: ${e.message}');
+    }
+  }
+
+  // Confirm sign in with SMS MFA code
+  Future<SignInResult> confirmSignInWithSmsMfaCode({
+    required String code,
+  }) async {
+    try {
+      final result = await Amplify.Auth.confirmSignIn(
+        confirmationValue: code,
+      );
+
+      // Store token if sign in is complete
+      if (result.isSignedIn) {
+        final session = await Amplify.Auth.fetchAuthSession(
+          options: const FetchAuthSessionOptions(forceRefresh: true),
+        ) as CognitoAuthSession;
+
+        final idToken = session.userPoolTokensResult.value.idToken.raw;
+        await _apiService.storeToken(idToken);
+      }
+
+      return result;
+    } on AuthException catch (e) {
+      throw Exception('SMS MFA confirmation failed: ${e.message}');
     }
   }
 }

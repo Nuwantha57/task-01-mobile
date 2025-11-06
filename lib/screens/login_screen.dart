@@ -49,8 +49,10 @@ class _LoginScreenState extends State<LoginScreen> {
           MaterialPageRoute(builder: (_) => const HomeScreen()),
         );
       } else if (result.nextStep.signInStep ==
-          AuthSignInStep.confirmSignInWithTotpMfaCode) {
-        // MFA required
+              AuthSignInStep.confirmSignInWithTotpMfaCode ||
+          result.nextStep.signInStep ==
+              AuthSignInStep.confirmSignInWithSmsMfaCode) {
+        // MFA required (TOTP or SMS)
         Navigator.of(context).push(
           MaterialPageRoute(
             builder: (_) => const MfaConfirmationScreen(),
