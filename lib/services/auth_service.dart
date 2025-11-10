@@ -213,7 +213,7 @@ class AuthService {
   }) async {
     try {
       await Amplify.Auth.updateUserAttribute(
-        userAttributeKey: CognitoUserAttributeKey.custom('mfa_enabled'),
+        userAttributeKey: const CognitoUserAttributeKey.custom('mfa_enabled'),
         value: 'true',
       );
       // Note: In Amplify 2.x, MFA preferences are set through user attributes

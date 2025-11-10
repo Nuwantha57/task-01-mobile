@@ -145,8 +145,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     border: OutlineInputBorder(),
                   ),
                   validator: (v) {
-                    if (v == null || v.isEmpty)
+                    if (v == null || v.isEmpty) {
                       return 'Please enter your email';
+                    }
                     if (!EmailValidator.validate(v)) {
                       return 'Please enter a valid email';
                     }
@@ -166,8 +167,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     helperText: 'Include country code, e.g. +94xxxxxxxxx',
                   ),
                   validator: (v) {
-                    if (v == null || v.isEmpty)
+                    if (v == null || v.isEmpty) {
                       return 'Enter your phone number';
+                    }
                     if (!v.startsWith('+')) return 'Include country code';
                     return null;
                   },

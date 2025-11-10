@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:amplify_flutter/amplify_flutter.dart';
 import '../services/auth_service.dart';
 import 'login_screen.dart';
 import 'home_screen.dart';
@@ -20,10 +21,24 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 
   Future<void> _checkAuthStatus() async {
-    await Future.delayed(const Duration(seconds: 2)); // Splash delay
+    // Minimum splash visibility
+    await Future.delayed(const Duration(milliseconds: 800));
+
+    // Wait for Amplify configuration if still in progress (avoid race & exceptions)
+    final start = DateTime.now();
+    const maxWait = Duration(seconds: 10);
+    while (
+        !Amplify.isConfigured && DateTime.now().difference(start) < maxWait) {
+      await Future.delayed(const Duration(milliseconds: 200));
+    }
+    if (!Amplify.isConfigured) {
+      safePrint(
+          'Amplify not configured after timeout; proceeding with unauth flow');
+    }
 
     try {
-      final isSignedIn = await _authService.isSignedIn();
+      final isSignedIn =
+          Amplify.isConfigured ? await _authService.isSignedIn() : false;
 
       if (!mounted) return;
 
