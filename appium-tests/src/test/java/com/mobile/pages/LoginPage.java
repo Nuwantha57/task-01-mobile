@@ -1,12 +1,13 @@
 package com.mobile.pages;
 
-import io.appium.java_client.AppiumBy;
-import io.appium.java_client.android.AndroidDriver;
+import java.time.Duration;
+
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.time.Duration;
+import io.appium.java_client.AppiumBy;
+import io.appium.java_client.android.AndroidDriver;
 
 /**
  * Page Object for Login Screen
@@ -55,20 +56,27 @@ public class LoginPage {
 
     private WebElement getSignInButton() {
         try {
+            // Flutter buttons use content-desc, not text attribute
             return wait.until(ExpectedConditions.elementToBeClickable(
-                AppiumBy.xpath("//android.widget.Button[@text='Sign In' or @text='Login' or contains(@content-desc,'sign') or contains(@content-desc,'login')]")
+                AppiumBy.xpath("//android.widget.Button[@content-desc='Sign In' or @content-desc='Login' or contains(@content-desc,'sign')]")
             ));
         } catch (Exception e) {
-            // Fallback: the first clickable button
-            return wait.until(ExpectedConditions.elementToBeClickable(
-                AppiumBy.className("android.widget.Button")
-            ));
+            // Fallback: find by text if content-desc doesn't work
+            try {
+                return wait.until(ExpectedConditions.elementToBeClickable(
+                    AppiumBy.xpath("//android.widget.Button[@text='Sign In' or @text='Login']")
+                ));
+            } catch (Exception e2) {
+                // Last resort: the last button on screen (usually the submit button)
+                java.util.List<WebElement> buttons = driver.findElements(AppiumBy.className("android.widget.Button"));
+                return buttons.get(buttons.size() - 1);
+            }
         }
     }
 
     private WebElement getForgotPasswordLink() {
         return driver.findElement(
-            AppiumBy.xpath("//android.widget.TextView[@text='Forgot Password?']"));
+            AppiumBy.xpath("//android.widget.Button[@content-desc='Forgot Password?' or contains(@content-desc,'Forgot')]"));
     }
 
     private WebElement getSignUpLink() {
@@ -106,7 +114,19 @@ public class LoginPage {
     public void enterEmail(String email) {
         WebElement emailField = getEmailField();
         emailField.clear();
+        emailField.click();  // Ensure field is focused
         emailField.sendKeys(email);
+        
+        // Verify text was entered
+        try {
+            Thread.sleep(500);
+            String enteredText = emailField.getText();
+            if (enteredText == null || enteredText.isEmpty()) {
+                System.out.println("WARNING: Email field appears empty after sendKeys");
+            }
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+        }
     }
 
     /**
@@ -115,15 +135,34 @@ public class LoginPage {
     public void enterPassword(String password) {
         WebElement passwordField = getPasswordField();
         passwordField.clear();
+        passwordField.click();  // Ensure field is focused
         passwordField.sendKeys(password);
+        
+        // Verify text was entered
+        try {
+            Thread.sleep(500);
+            String enteredText = passwordField.getText();
+            if (enteredText == null || enteredText.isEmpty()) {
+                System.out.println("WARNING: Password field appears empty after sendKeys");
+            }
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+        }
     }
 
     /**
      * Click sign in button
      */
     public void clickSignIn() {
-        driver.hideKeyboard();
-        getSignInButton().click();
+        try {
+            driver.hideKeyboard();
+        } catch (Exception e) {
+            // Keyboard might not be showing, ignore
+        }
+        
+        WebElement signInButton = getSignInButton();
+        System.out.println("Clicking Sign In button...");
+        signInButton.click();
     }
 
     /**
@@ -134,9 +173,9 @@ public class LoginPage {
         enterPassword(password);
         clickSignIn();
         
-        // Wait for navigation
+        // Wait for navigation - AWS Cognito authentication can take time
         try {
-            Thread.sleep(2000);
+            Thread.sleep(5000);  // Increased from 2000 to 5000ms
         } catch (InterruptedException e) {
             Thread.currentThread().interrupt();
         }

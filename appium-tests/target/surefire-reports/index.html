@@ -25,7 +25,7 @@
       <span class="top-banner-title-font">Test results</span>
       <button id="button" class="button">Switch Retro Theme</button> <!-- button -->
       <br/>
-      <span class="top-banner-font-1">1 suite</span>
+      <span class="top-banner-font-1">1 suite, 10 failed tests</span>
     </div> <!-- top-banner-root -->
     <div class="navigator-root">
       <div class="navigator-suite-header">
@@ -39,7 +39,7 @@
         <div class="rounded-window">
           <div class="suite-header light-rounded-window-top">
             <a href="#" panel-name="suite-Surefire_suite" class="navigator-link">
-              <span class="suite-name border-passed">Surefire suite</span>
+              <span class="suite-name border-failed">Surefire suite</span>
             </a> <!-- navigator-link -->
           </div> <!-- suite-header light-rounded-window-top -->
           <div class="navigator-suite-content">
@@ -92,21 +92,66 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">1 method,   1 passed</span>
+                    <span class="method-stats">10 methods, 10 failed,   </span>
                   </li>
                   <li>
-                    <span class="method-list-title passed">Passed methods</span>
-                    <span class="show-or-hide-methods passed">
-                      <a href="#" panel-name="suite-Surefire_suite" class="hide-methods passed suite-Surefire_suite"> (hide)</a> <!-- hide-methods passed suite-Surefire_suite -->
-                      <a href="#" panel-name="suite-Surefire_suite" class="show-methods passed suite-Surefire_suite"> (show)</a> <!-- show-methods passed suite-Surefire_suite -->
+                    <span class="method-list-title failed">Failed methods</span>
+                    <span class="show-or-hide-methods failed">
+                      <a href="#" panel-name="suite-Surefire_suite" class="hide-methods failed suite-Surefire_suite"> (hide)</a> <!-- hide-methods failed suite-Surefire_suite -->
+                      <a href="#" panel-name="suite-Surefire_suite" class="show-methods failed suite-Surefire_suite"> (show)</a> <!-- show-methods failed suite-Surefire_suite -->
                     </span>
-                    <div class="method-list-content passed suite-Surefire_suite">
+                    <div class="method-list-content failed suite-Surefire_suite">
                       <span>
-                        <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Surefire_suite" title="com.mobile.tests.AppLaunchTest" class="method navigator-link" hash-for-method="testAppLaunches">testAppLaunches</a> <!-- method navigator-link -->
+                        <img src="failed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="com.mobile.tests.MfaTest" class="method navigator-link" hash-for-method="testLoginWithMfaExpiredCode">testLoginWithMfaExpiredCode</a> <!-- method navigator-link -->
                       </span>
                       <br/>
-                    </div> <!-- method-list-content passed suite-Surefire_suite -->
+                      <span>
+                        <img src="failed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="com.mobile.tests.MfaTest" class="method navigator-link" hash-for-method="testLoginWithMfaInvalidCode">testLoginWithMfaInvalidCode</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="failed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="com.mobile.tests.MfaTest" class="method navigator-link" hash-for-method="testLoginWithMfaValidCode">testLoginWithMfaValidCode</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="failed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="com.mobile.tests.MfaTest" class="method navigator-link" hash-for-method="testMfaCodeFieldValidation">testMfaCodeFieldValidation</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="failed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="com.mobile.tests.MfaTest" class="method navigator-link" hash-for-method="testMfaRetryAfterFailures">testMfaRetryAfterFailures</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="failed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="com.mobile.tests.MfaTest" class="method navigator-link" hash-for-method="testMfaSetupWithInvalidCode">testMfaSetupWithInvalidCode</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="failed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="com.mobile.tests.MfaTest" class="method navigator-link" hash-for-method="testMfaSetupWithValidCode">testMfaSetupWithValidCode</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="failed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="com.mobile.tests.MfaTest" class="method navigator-link" hash-for-method="testNavigateToMfaSetup">testNavigateToMfaSetup</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="failed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="com.mobile.tests.MfaTest" class="method navigator-link" hash-for-method="testQrCodeAndSecretKeyDisplayed">testQrCodeAndSecretKeyDisplayed</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="failed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="com.mobile.tests.MfaTest" class="method navigator-link" hash-for-method="testSetupMfaButtonAfterEnabled">testSetupMfaButtonAfterEnabled</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content failed suite-Surefire_suite -->
                   </li>
                 </ul>
               </div> <!-- suite-section-content -->
@@ -118,23 +163,218 @@
     <div class="wrapper">
       <div class="main-panel-root">
         <div panel-name="suite-Surefire_suite" class="panel Surefire_suite">
-          <div class="suite-Surefire_suite-class-passed">
+          <div class="suite-Surefire_suite-class-failed">
             <div class="main-panel-header rounded-window-top">
-              <img src="passed.png"/>
-              <span class="class-name">com.mobile.tests.AppLaunchTest</span>
+              <img src="failed.png"/>
+              <span class="class-name">com.mobile.tests.MfaTest</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="testAppLaunches">
-                  </a> <!-- testAppLaunches -->
-                  <span class="method-name">testAppLaunches</span>
+                  <a name="testLoginWithMfaExpiredCode">
+                  </a> <!-- testLoginWithMfaExpiredCode -->
+                  <span class="method-name">testLoginWithMfaExpiredCode</span>
+                  <div class="stack-trace">org.openqa.selenium.TimeoutException: Expected condition failed: waiting for element to be clickable: By.xpath: //android.widget.Button[@text=&apos;Verify&apos;] (tried for 15 second(s) with 500 milliseconds interval)
+Build info: version: &apos;4.13.0&apos;, revision: &apos;ba948ece5b*&apos;
+System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;21.0.8&apos;
+Driver info: io.appium.java_client.android.AndroidDriver
+Capabilities {appium:app: C:/Intern_Project_Code/task..., appium:appActivity: com.example.staff_auth_mobi..., appium:appPackage: com.example.staff_auth_mobile, appium:appWaitActivity: *, appium:automationName: UiAutomator2, appium:databaseEnabled: false, appium:desired: {app: C:/Intern_Project_Code/task..., appWaitActivity: *, automationName: UiAutomator2, deviceName: emulator-5554, fullReset: false, newCommandTimeout: 300, noReset: false, platformName: ANDROID, platformVersion: 16}, appium:deviceApiLevel: 36, appium:deviceManufacturer: Google, appium:deviceModel: sdk_gphone64_x86_64, appium:deviceName: emulator-5554, appium:deviceScreenDensity: 420, appium:deviceScreenSize: 1080x2400, appium:deviceUDID: emulator-5554, appium:fullReset: false, appium:javascriptEnabled: true, appium:locationContextEnabled: false, appium:networkConnectionEnabled: true, appium:newCommandTimeout: 300, appium:noReset: false, appium:pixelRatio: 2.625, appium:platformVersion: 16, appium:statBarHeight: 63, appium:takesScreenshot: true, appium:viewportRect: {height: 2337, left: 0, top: 63, width: 1080}, appium:warnings: {}, appium:webStorageEnabled: false, platformName: ANDROID}
+Session ID: 0f6b2836-dc43-4a07-b88d-322d4a552496
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:230)
+	at com.mobile.pages.MfaConfirmationPage.getVerifyButton(MfaConfirmationPage.java:69)
+	at com.mobile.pages.MfaConfirmationPage.clickVerify(MfaConfirmationPage.java:114)
+	at com.mobile.tests.MfaTest.testLoginWithMfaExpiredCode(MfaTest.java:189)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+... Removed 30 stack frames
+</div> <!-- stack-trace -->
                   <em>
-(Verify app launches and renders a UI hierarchy)                  </em>
+(Test login with MFA - expired code)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testLoginWithMfaInvalidCode">
+                  </a> <!-- testLoginWithMfaInvalidCode -->
+                  <span class="method-name">testLoginWithMfaInvalidCode</span>
+                  <div class="stack-trace">org.openqa.selenium.TimeoutException: Expected condition failed: waiting for element to be clickable: By.xpath: //android.view.View[@content-desc=&apos;Dashboard&apos;]/ancestor::android.view.ViewGroup//android.widget.ImageButton[last()] (tried for 15 second(s) with 500 milliseconds interval)
+Build info: version: &apos;4.13.0&apos;, revision: &apos;ba948ece5b*&apos;
+System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;21.0.8&apos;
+Driver info: io.appium.java_client.android.AndroidDriver
+Capabilities {appium:app: C:/Intern_Project_Code/task..., appium:appActivity: com.example.staff_auth_mobi..., appium:appPackage: com.example.staff_auth_mobile, appium:appWaitActivity: *, appium:automationName: UiAutomator2, appium:databaseEnabled: false, appium:desired: {app: C:/Intern_Project_Code/task..., appWaitActivity: *, automationName: UiAutomator2, deviceName: emulator-5554, fullReset: false, newCommandTimeout: 300, noReset: false, platformName: ANDROID, platformVersion: 16}, appium:deviceApiLevel: 36, appium:deviceManufacturer: Google, appium:deviceModel: sdk_gphone64_x86_64, appium:deviceName: emulator-5554, appium:deviceScreenDensity: 420, appium:deviceScreenSize: 1080x2400, appium:deviceUDID: emulator-5554, appium:fullReset: false, appium:javascriptEnabled: true, appium:locationContextEnabled: false, appium:networkConnectionEnabled: true, appium:newCommandTimeout: 300, appium:noReset: false, appium:pixelRatio: 2.625, appium:platformVersion: 16, appium:statBarHeight: 63, appium:takesScreenshot: true, appium:viewportRect: {height: 2337, left: 0, top: 63, width: 1080}, appium:warnings: {}, appium:webStorageEnabled: false, platformName: ANDROID}
+Session ID: 0f6b2836-dc43-4a07-b88d-322d4a552496
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:230)
+	at com.mobile.pages.HomePage.getLogoutButton(HomePage.java:72)
+	at com.mobile.pages.HomePage.clickLogout(HomePage.java:146)
+	at com.mobile.tests.MfaTest.testLoginWithMfaInvalidCode(MfaTest.java:159)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+... Removed 30 stack frames
+</div> <!-- stack-trace -->
+                  <em>
+(Test login with MFA enabled - invalid code)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testLoginWithMfaValidCode">
+                  </a> <!-- testLoginWithMfaValidCode -->
+                  <span class="method-name">testLoginWithMfaValidCode</span>
+                  <div class="stack-trace">org.openqa.selenium.TimeoutException: Expected condition failed: waiting for element to be clickable: By.xpath: //android.view.View[@content-desc=&apos;Dashboard&apos;]/ancestor::android.view.ViewGroup//android.widget.ImageButton[last()] (tried for 15 second(s) with 500 milliseconds interval)
+Build info: version: &apos;4.13.0&apos;, revision: &apos;ba948ece5b*&apos;
+System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;21.0.8&apos;
+Driver info: io.appium.java_client.android.AndroidDriver
+Capabilities {appium:app: C:/Intern_Project_Code/task..., appium:appActivity: com.example.staff_auth_mobi..., appium:appPackage: com.example.staff_auth_mobile, appium:appWaitActivity: *, appium:automationName: UiAutomator2, appium:databaseEnabled: false, appium:desired: {app: C:/Intern_Project_Code/task..., appWaitActivity: *, automationName: UiAutomator2, deviceName: emulator-5554, fullReset: false, newCommandTimeout: 300, noReset: false, platformName: ANDROID, platformVersion: 16}, appium:deviceApiLevel: 36, appium:deviceManufacturer: Google, appium:deviceModel: sdk_gphone64_x86_64, appium:deviceName: emulator-5554, appium:deviceScreenDensity: 420, appium:deviceScreenSize: 1080x2400, appium:deviceUDID: emulator-5554, appium:fullReset: false, appium:javascriptEnabled: true, appium:locationContextEnabled: false, appium:networkConnectionEnabled: true, appium:newCommandTimeout: 300, appium:noReset: false, appium:pixelRatio: 2.625, appium:platformVersion: 16, appium:statBarHeight: 63, appium:takesScreenshot: true, appium:viewportRect: {height: 2337, left: 0, top: 63, width: 1080}, appium:warnings: {}, appium:webStorageEnabled: false, platformName: ANDROID}
+Session ID: 0f6b2836-dc43-4a07-b88d-322d4a552496
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:230)
+	at com.mobile.pages.HomePage.getLogoutButton(HomePage.java:72)
+	at com.mobile.pages.HomePage.clickLogout(HomePage.java:146)
+	at com.mobile.tests.MfaTest.testLoginWithMfaValidCode(MfaTest.java:127)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+... Removed 30 stack frames
+</div> <!-- stack-trace -->
+                  <em>
+(Test login with MFA enabled - valid code)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testMfaCodeFieldValidation">
+                  </a> <!-- testMfaCodeFieldValidation -->
+                  <span class="method-name">testMfaCodeFieldValidation</span>
+                  <div class="stack-trace">org.openqa.selenium.TimeoutException: Expected condition failed: waiting for element to be clickable: By.xpath: //android.view.View[@content-desc=&apos;Dashboard&apos;]/ancestor::android.view.ViewGroup//android.widget.ImageButton[last()] (tried for 15 second(s) with 500 milliseconds interval)
+Build info: version: &apos;4.13.0&apos;, revision: &apos;ba948ece5b*&apos;
+System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;21.0.8&apos;
+Driver info: io.appium.java_client.android.AndroidDriver
+Capabilities {appium:app: C:/Intern_Project_Code/task..., appium:appActivity: com.example.staff_auth_mobi..., appium:appPackage: com.example.staff_auth_mobile, appium:appWaitActivity: *, appium:automationName: UiAutomator2, appium:databaseEnabled: false, appium:desired: {app: C:/Intern_Project_Code/task..., appWaitActivity: *, automationName: UiAutomator2, deviceName: emulator-5554, fullReset: false, newCommandTimeout: 300, noReset: false, platformName: ANDROID, platformVersion: 16}, appium:deviceApiLevel: 36, appium:deviceManufacturer: Google, appium:deviceModel: sdk_gphone64_x86_64, appium:deviceName: emulator-5554, appium:deviceScreenDensity: 420, appium:deviceScreenSize: 1080x2400, appium:deviceUDID: emulator-5554, appium:fullReset: false, appium:javascriptEnabled: true, appium:locationContextEnabled: false, appium:networkConnectionEnabled: true, appium:newCommandTimeout: 300, appium:noReset: false, appium:pixelRatio: 2.625, appium:platformVersion: 16, appium:statBarHeight: 63, appium:takesScreenshot: true, appium:viewportRect: {height: 2337, left: 0, top: 63, width: 1080}, appium:warnings: {}, appium:webStorageEnabled: false, platformName: ANDROID}
+Session ID: 0f6b2836-dc43-4a07-b88d-322d4a552496
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:230)
+	at com.mobile.pages.HomePage.getLogoutButton(HomePage.java:72)
+	at com.mobile.pages.HomePage.clickLogout(HomePage.java:146)
+	at com.mobile.tests.MfaTest.testMfaCodeFieldValidation(MfaTest.java:219)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+... Removed 30 stack frames
+</div> <!-- stack-trace -->
+                  <em>
+(Verify MFA code field accepts only 6 digits)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testMfaRetryAfterFailures">
+                  </a> <!-- testMfaRetryAfterFailures -->
+                  <span class="method-name">testMfaRetryAfterFailures</span>
+                  <div class="stack-trace">org.openqa.selenium.TimeoutException: Expected condition failed: waiting for element to be clickable: By.xpath: //android.widget.Button[@text=&apos;Verify&apos;] (tried for 15 second(s) with 500 milliseconds interval)
+Build info: version: &apos;4.13.0&apos;, revision: &apos;ba948ece5b*&apos;
+System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;21.0.8&apos;
+Driver info: io.appium.java_client.android.AndroidDriver
+Capabilities {appium:app: C:/Intern_Project_Code/task..., appium:appActivity: com.example.staff_auth_mobi..., appium:appPackage: com.example.staff_auth_mobile, appium:appWaitActivity: *, appium:automationName: UiAutomator2, appium:databaseEnabled: false, appium:desired: {app: C:/Intern_Project_Code/task..., appWaitActivity: *, automationName: UiAutomator2, deviceName: emulator-5554, fullReset: false, newCommandTimeout: 300, noReset: false, platformName: ANDROID, platformVersion: 16}, appium:deviceApiLevel: 36, appium:deviceManufacturer: Google, appium:deviceModel: sdk_gphone64_x86_64, appium:deviceName: emulator-5554, appium:deviceScreenDensity: 420, appium:deviceScreenSize: 1080x2400, appium:deviceUDID: emulator-5554, appium:fullReset: false, appium:javascriptEnabled: true, appium:locationContextEnabled: false, appium:networkConnectionEnabled: true, appium:newCommandTimeout: 300, appium:noReset: false, appium:pixelRatio: 2.625, appium:platformVersion: 16, appium:statBarHeight: 63, appium:takesScreenshot: true, appium:viewportRect: {height: 2337, left: 0, top: 63, width: 1080}, appium:warnings: {}, appium:webStorageEnabled: false, platformName: ANDROID}
+Session ID: 0f6b2836-dc43-4a07-b88d-322d4a552496
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:230)
+	at com.mobile.pages.MfaConfirmationPage.getVerifyButton(MfaConfirmationPage.java:69)
+	at com.mobile.pages.MfaConfirmationPage.clickVerify(MfaConfirmationPage.java:114)
+	at com.mobile.tests.MfaTest.testMfaRetryAfterFailures(MfaTest.java:206)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+... Removed 30 stack frames
+</div> <!-- stack-trace -->
+                  <em>
+(Test MFA retry with correct code after failures)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testMfaSetupWithInvalidCode">
+                  </a> <!-- testMfaSetupWithInvalidCode -->
+                  <span class="method-name">testMfaSetupWithInvalidCode</span>
+                  <div class="stack-trace">org.openqa.selenium.TimeoutException: Expected condition failed: waiting for element to be clickable: By.xpath: //android.widget.EditText[@hint=&apos;Verification Code&apos;] (tried for 20 second(s) with 500 milliseconds interval)
+Build info: version: &apos;4.13.0&apos;, revision: &apos;ba948ece5b*&apos;
+System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;21.0.8&apos;
+Driver info: io.appium.java_client.android.AndroidDriver
+Capabilities {appium:app: C:/Intern_Project_Code/task..., appium:appActivity: com.example.staff_auth_mobi..., appium:appPackage: com.example.staff_auth_mobile, appium:appWaitActivity: *, appium:automationName: UiAutomator2, appium:databaseEnabled: false, appium:desired: {app: C:/Intern_Project_Code/task..., appWaitActivity: *, automationName: UiAutomator2, deviceName: emulator-5554, fullReset: false, newCommandTimeout: 300, noReset: false, platformName: ANDROID, platformVersion: 16}, appium:deviceApiLevel: 36, appium:deviceManufacturer: Google, appium:deviceModel: sdk_gphone64_x86_64, appium:deviceName: emulator-5554, appium:deviceScreenDensity: 420, appium:deviceScreenSize: 1080x2400, appium:deviceUDID: emulator-5554, appium:fullReset: false, appium:javascriptEnabled: true, appium:locationContextEnabled: false, appium:networkConnectionEnabled: true, appium:newCommandTimeout: 300, appium:noReset: false, appium:pixelRatio: 2.625, appium:platformVersion: 16, appium:statBarHeight: 63, appium:takesScreenshot: true, appium:viewportRect: {height: 2337, left: 0, top: 63, width: 1080}, appium:warnings: {}, appium:webStorageEnabled: false, platformName: ANDROID}
+Session ID: 0f6b2836-dc43-4a07-b88d-322d4a552496
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:230)
+	at com.mobile.pages.MfaSetupPage.getVerificationCodeField(MfaSetupPage.java:92)
+	at com.mobile.pages.MfaSetupPage.enterVerificationCode(MfaSetupPage.java:201)
+	at com.mobile.tests.MfaTest.testMfaSetupWithInvalidCode(MfaTest.java:80)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+... Removed 30 stack frames
+</div> <!-- stack-trace -->
+                  <em>
+(Verify MFA setup with invalid code)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testMfaSetupWithValidCode">
+                  </a> <!-- testMfaSetupWithValidCode -->
+                  <span class="method-name">testMfaSetupWithValidCode</span>
+                  <div class="stack-trace">java.lang.AssertionError: Secret key should be available expected object to not be null
+	at com.mobile.tests.MfaTest.testMfaSetupWithValidCode(MfaTest.java:96)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+... Removed 32 stack frames
+</div> <!-- stack-trace -->
+                  <em>
+(Verify MFA setup with valid TOTP code)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testNavigateToMfaSetup">
+                  </a> <!-- testNavigateToMfaSetup -->
+                  <span class="method-name">testNavigateToMfaSetup</span>
+                  <div class="stack-trace">java.lang.AssertionError: Home page should be displayed after login expected [true] but found [false]
+	at com.mobile.tests.MfaTest.testNavigateToMfaSetup(MfaTest.java:40)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+... Removed 33 stack frames
+</div> <!-- stack-trace -->
+                  <em>
+(Verify MFA setup flow - Navigate to MFA setup from home)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testQrCodeAndSecretKeyDisplayed">
+                  </a> <!-- testQrCodeAndSecretKeyDisplayed -->
+                  <span class="method-name">testQrCodeAndSecretKeyDisplayed</span>
+                  <div class="stack-trace">java.lang.AssertionError: QR code should be displayed expected [true] but found [false]
+	at com.mobile.tests.MfaTest.testQrCodeAndSecretKeyDisplayed(MfaTest.java:59)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+... Removed 33 stack frames
+</div> <!-- stack-trace -->
+                  <em>
+(Verify QR code and secret key are displayed)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testSetupMfaButtonAfterEnabled">
+                  </a> <!-- testSetupMfaButtonAfterEnabled -->
+                  <span class="method-name">testSetupMfaButtonAfterEnabled</span>
+                  <div class="stack-trace">org.openqa.selenium.TimeoutException: Expected condition failed: waiting for element to be clickable: By.xpath: //android.widget.Button[@text=&apos;Verify&apos;] (tried for 15 second(s) with 500 milliseconds interval)
+Build info: version: &apos;4.13.0&apos;, revision: &apos;ba948ece5b*&apos;
+System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;21.0.8&apos;
+Driver info: io.appium.java_client.android.AndroidDriver
+Capabilities {appium:app: C:/Intern_Project_Code/task..., appium:appActivity: com.example.staff_auth_mobi..., appium:appPackage: com.example.staff_auth_mobile, appium:appWaitActivity: *, appium:automationName: UiAutomator2, appium:databaseEnabled: false, appium:desired: {app: C:/Intern_Project_Code/task..., appWaitActivity: *, automationName: UiAutomator2, deviceName: emulator-5554, fullReset: false, newCommandTimeout: 300, noReset: false, platformName: ANDROID, platformVersion: 16}, appium:deviceApiLevel: 36, appium:deviceManufacturer: Google, appium:deviceModel: sdk_gphone64_x86_64, appium:deviceName: emulator-5554, appium:deviceScreenDensity: 420, appium:deviceScreenSize: 1080x2400, appium:deviceUDID: emulator-5554, appium:fullReset: false, appium:javascriptEnabled: true, appium:locationContextEnabled: false, appium:networkConnectionEnabled: true, appium:newCommandTimeout: 300, appium:noReset: false, appium:pixelRatio: 2.625, appium:platformVersion: 16, appium:statBarHeight: 63, appium:takesScreenshot: true, appium:viewportRect: {height: 2337, left: 0, top: 63, width: 1080}, appium:warnings: {}, appium:webStorageEnabled: false, platformName: ANDROID}
+Session ID: 0f6b2836-dc43-4a07-b88d-322d4a552496
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:230)
+	at com.mobile.pages.MfaConfirmationPage.getVerifyButton(MfaConfirmationPage.java:69)
+	at com.mobile.pages.MfaConfirmationPage.clickVerify(MfaConfirmationPage.java:114)
+	at com.mobile.pages.MfaConfirmationPage.submitMfaCode(MfaConfirmationPage.java:166)
+	at com.mobile.tests.MfaTest.testSetupMfaButtonAfterEnabled(MfaTest.java:241)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+... Removed 30 stack frames
+</div> <!-- stack-trace -->
+                  <em>
+(Verify Setup MFA button visibility after MFA is enabled)                  </em>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
-          </div> <!-- suite-Surefire_suite-class-passed -->
+          </div> <!-- suite-Surefire_suite-class-failed -->
         </div> <!-- panel Surefire_suite -->
         <div panel-name="test-xml-Surefire_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
@@ -146,7 +386,7 @@
 &lt;suite name=&quot;Surefire suite&quot; verbose=&quot;0&quot;&gt;
   &lt;test thread-count=&quot;5&quot; name=&quot;Surefire test&quot; verbose=&quot;0&quot;&gt;
     &lt;classes&gt;
-      &lt;class name=&quot;com.mobile.tests.AppLaunchTest&quot;/&gt;
+      &lt;class name=&quot;com.mobile.tests.MfaTest&quot;/&gt;
     &lt;/classes&gt;
   &lt;/test&gt; &lt;!-- Surefire test --&gt;
 &lt;/suite&gt; &lt;!-- Surefire suite --&gt;
@@ -186,16 +426,52 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(1);
+data.addRows(10);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'testAppLaunches')
-data.setCell(0, 2, 'com.mobile.tests.AppLaunchTest')
-data.setCell(0, 3, 4081);
+data.setCell(0, 1, 'testNavigateToMfaSetup')
+data.setCell(0, 2, 'com.mobile.tests.MfaTest')
+data.setCell(0, 3, 261094);
+data.setCell(1, 0, 1)
+data.setCell(1, 1, 'testLoginWithMfaExpiredCode')
+data.setCell(1, 2, 'com.mobile.tests.MfaTest')
+data.setCell(1, 3, 64119);
+data.setCell(2, 0, 2)
+data.setCell(2, 1, 'testSetupMfaButtonAfterEnabled')
+data.setCell(2, 2, 'com.mobile.tests.MfaTest')
+data.setCell(2, 3, 62959);
+data.setCell(3, 0, 3)
+data.setCell(3, 1, 'testMfaRetryAfterFailures')
+data.setCell(3, 2, 'com.mobile.tests.MfaTest')
+data.setCell(3, 3, 62947);
+data.setCell(4, 0, 4)
+data.setCell(4, 1, 'testMfaCodeFieldValidation')
+data.setCell(4, 2, 'com.mobile.tests.MfaTest')
+data.setCell(4, 3, 62199);
+data.setCell(5, 0, 5)
+data.setCell(5, 1, 'testLoginWithMfaInvalidCode')
+data.setCell(5, 2, 'com.mobile.tests.MfaTest')
+data.setCell(5, 3, 61968);
+data.setCell(6, 0, 6)
+data.setCell(6, 1, 'testLoginWithMfaValidCode')
+data.setCell(6, 2, 'com.mobile.tests.MfaTest')
+data.setCell(6, 3, 61922);
+data.setCell(7, 0, 7)
+data.setCell(7, 1, 'testMfaSetupWithInvalidCode')
+data.setCell(7, 2, 'com.mobile.tests.MfaTest')
+data.setCell(7, 3, 32021);
+data.setCell(8, 0, 8)
+data.setCell(8, 1, 'testMfaSetupWithValidCode')
+data.setCell(8, 2, 'com.mobile.tests.MfaTest')
+data.setCell(8, 3, 21280);
+data.setCell(9, 0, 9)
+data.setCell(9, 1, 'testQrCodeAndSecretKeyDisplayed')
+data.setCell(9, 2, 'com.mobile.tests.MfaTest')
+data.setCell(9, 3, 10061);
 window.suiteTableData['Surefire_suite']= { tableData: data, tableDiv: 'times-div-Surefire_suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 4 seconds</span>
+              <span class="suite-total-time">Total running time: 11 minutes</span>
               <div id="times-div-Surefire_suite">
               </div> <!-- times-div-Surefire_suite -->
             </div> <!-- times-div -->
@@ -221,18 +497,74 @@ return data;
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="chronological-class">
-              <div class="chronological-class-name">com.mobile.tests.AppLaunchTest</div> <!-- chronological-class-name -->
+              <div class="chronological-class-name">com.mobile.tests.MfaTest</div> <!-- chronological-class-name -->
               <div class="configuration-class before">
                 <span class="method-name">setUp</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-class before -->
               <div class="test-method">
-                <span class="method-name">testAppLaunches</span>
-                <span class="method-start">26962 ms</span>
+                <img src="failed.png">
+                </img>
+                <span class="method-name">testNavigateToMfaSetup</span>
+                <span class="method-start">33225 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">testQrCodeAndSecretKeyDisplayed</span>
+                <span class="method-start">294327 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">testMfaSetupWithInvalidCode</span>
+                <span class="method-start">304392 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">testMfaSetupWithValidCode</span>
+                <span class="method-start">336422 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">testLoginWithMfaValidCode</span>
+                <span class="method-start">357706 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">testLoginWithMfaInvalidCode</span>
+                <span class="method-start">419632 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">testLoginWithMfaExpiredCode</span>
+                <span class="method-start">481604 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">testMfaRetryAfterFailures</span>
+                <span class="method-start">545725 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">testMfaCodeFieldValidation</span>
+                <span class="method-start">608674 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">testSetupMfaButtonAfterEnabled</span>
+                <span class="method-start">670875 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-class after">
                 <span class="method-name">tearDown</span>
-                <span class="method-start">31048 ms</span>
+                <span class="method-start">733838 ms</span>
               </div> <!-- configuration-class after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

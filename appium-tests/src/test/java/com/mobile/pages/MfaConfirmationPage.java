@@ -1,12 +1,13 @@
 package com.mobile.pages;
 
-import io.appium.java_client.AppiumBy;
-import io.appium.java_client.android.AndroidDriver;
+import java.time.Duration;
+
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.time.Duration;
+import io.appium.java_client.AppiumBy;
+import io.appium.java_client.android.AndroidDriver;
 
 /**
  * Page Object for MFA Confirmation Screen (During Login)
@@ -33,26 +34,41 @@ public class MfaConfirmationPage {
             AppiumBy.xpath("//*[contains(@text, 'Enter MFA Code')]"));
     }
 
+    @SuppressWarnings("unused")
     private WebElement getSecurityIcon() {
         return driver.findElement(
             AppiumBy.xpath("//android.widget.ImageView[@content-desc='security']"));
     }
 
+    @SuppressWarnings("unused")
     private WebElement getDescriptionText() {
         return driver.findElement(
             AppiumBy.xpath("//*[contains(@text, '6-digit code from your authenticator app')]"));
     }
 
-    // MFA code input field
+    // MFA code input field - Updated to match actual Flutter rendering
     private WebElement getMfaCodeField() {
-        return wait.until(ExpectedConditions.elementToBeClickable(
-            AppiumBy.xpath("//android.widget.EditText[@hint='123456' or contains(@text, 'MFA Code')]")));
+        try {
+            // Try "MFA Code" hint first (login screen)
+            return wait.until(ExpectedConditions.elementToBeClickable(
+                AppiumBy.xpath("//android.widget.EditText[@hint='MFA Code' or @hint='Verification Code' or @hint='123456']")));
+        } catch (Exception e) {
+            // Fallback: any EditText with max-text-length="6"
+            return wait.until(ExpectedConditions.elementToBeClickable(
+                AppiumBy.xpath("//android.widget.EditText")));
+        }
     }
 
-    // Verify button
+    // Verify button - Updated to use content-desc
     private WebElement getVerifyButton() {
-        return wait.until(ExpectedConditions.elementToBeClickable(
-            AppiumBy.xpath("//android.widget.Button[@text='Verify']")));
+        try {
+            return wait.until(ExpectedConditions.elementToBeClickable(
+                AppiumBy.xpath("//android.widget.Button[@content-desc='Verify' or contains(@content-desc, 'Verify')]")));
+        } catch (Exception e) {
+            // Fallback to text attribute
+            return wait.until(ExpectedConditions.elementToBeClickable(
+                AppiumBy.xpath("//android.widget.Button[@text='Verify']")));
+        }
     }
 
     // Loading indicator

@@ -1,6 +1,5 @@
 package com.mobile.utils;
 
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
@@ -9,15 +8,22 @@ import java.util.Properties;
  * Configuration helper to read test configuration
  */
 public class ConfigReader {
-    private static Properties properties;
-    private static final String CONFIG_FILE = "src/test/resources/config.properties";
+    private static final Properties properties = new Properties();
 
     static {
-        properties = new Properties();
-        try (InputStream input = new FileInputStream(CONFIG_FILE)) {
-            properties.load(input);
+        try {
+            // Load from classpath (works with Maven)
+            InputStream input = ConfigReader.class.getClassLoader().getResourceAsStream("config.properties");
+            if (input == null) {
+                System.err.println("❌ ERROR: Unable to find config.properties in classpath!");
+            } else {
+                properties.load(input);
+                input.close();
+                System.out.println("✅ Config loaded successfully. Test email: " + properties.getProperty("test.email"));
+            }
         } catch (IOException e) {
-            System.err.println("Failed to load configuration file: " + e.getMessage());
+            System.err.println("❌ ERROR: Failed to load configuration file: " + e.getMessage());
+            throw new ExceptionInInitializerError(e);
         }
     }
 

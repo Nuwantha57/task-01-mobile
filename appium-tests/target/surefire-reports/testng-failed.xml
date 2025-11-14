@@ -5,8 +5,17 @@
     <classes>
       <class name="com.mobile.tests.MfaTest">
         <methods>
+          <include name="testLoginWithMfaExpiredCode"/>
+          <include name="testQrCodeAndSecretKeyDisplayed"/>
           <include name="setUp"/>
+          <include name="testMfaCodeFieldValidation"/>
+          <include name="testMfaSetupWithInvalidCode"/>
           <include name="tearDown"/>
+          <include name="testLoginWithMfaInvalidCode"/>
+          <include name="testSetupMfaButtonAfterEnabled"/>
+          <include name="testMfaRetryAfterFailures"/>
+          <include name="testLoginWithMfaValidCode"/>
+          <include name="testMfaSetupWithValidCode"/>
           <include name="testNavigateToMfaSetup"/>
         </methods>
       </class> <!-- com.mobile.tests.MfaTest -->

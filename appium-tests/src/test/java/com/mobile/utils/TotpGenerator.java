@@ -1,6 +1,10 @@
 package com.mobile.utils;
 
-import dev.samstevens.totp.code.*;
+import dev.samstevens.totp.code.CodeGenerator;
+import dev.samstevens.totp.code.CodeVerifier;
+import dev.samstevens.totp.code.DefaultCodeGenerator;
+import dev.samstevens.totp.code.DefaultCodeVerifier;
+import dev.samstevens.totp.code.HashingAlgorithm;
 import dev.samstevens.totp.time.SystemTimeProvider;
 import dev.samstevens.totp.time.TimeProvider;
 
@@ -23,14 +27,13 @@ public class TotpGenerator {
         try {
             TimeProvider timeProvider = new SystemTimeProvider();
             CodeGenerator codeGenerator = new DefaultCodeGenerator(ALGORITHM, DIGITS);
-            CodeVerifier verifier = new DefaultCodeVerifier(codeGenerator, timeProvider);
             
             // Generate code
             long currentBucket = Math.floorDiv(timeProvider.getTime(), PERIOD);
             String code = codeGenerator.generate(secretKey, currentBucket);
             
             return code;
-        } catch (Exception e) {
+        } catch (dev.samstevens.totp.exceptions.CodeGenerationException e) {
             throw new RuntimeException("Failed to generate TOTP code: " + e.getMessage(), e);
         }
     }
@@ -49,6 +52,7 @@ public class TotpGenerator {
             
             return verifier.isValidCode(secretKey, code);
         } catch (Exception e) {
+            // Catch any exception during verification
             return false;
         }
     }
@@ -60,6 +64,10 @@ public class TotpGenerator {
      * @return The secret key
      */
     public static String extractSecretFromUri(String totpUri) {
+        if (totpUri == null || totpUri.isEmpty()) {
+            throw new IllegalArgumentException("TOTP URI cannot be null or empty");
+        }
+        
         try {
             // Find secret parameter
             String[] parts = totpUri.split("secret=");
@@ -75,6 +83,8 @@ public class TotpGenerator {
             } else {
                 return secretPart;
             }
+        } catch (IllegalArgumentException e) {
+            throw e;
         } catch (Exception e) {
             throw new RuntimeException("Failed to extract secret from URI: " + e.getMessage(), e);
         }

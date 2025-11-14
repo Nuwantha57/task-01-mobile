@@ -1,12 +1,13 @@
 package com.mobile.pages;
 
-import io.appium.java_client.AppiumBy;
-import io.appium.java_client.android.AndroidDriver;
+import java.time.Duration;
+
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.time.Duration;
+import io.appium.java_client.AppiumBy;
+import io.appium.java_client.android.AndroidDriver;
 
 /**
  * Page Object for Home/Dashboard Screen
@@ -24,20 +25,20 @@ public class HomePage {
 
     private WebElement getDashboardTitle() {
         return wait.until(ExpectedConditions.visibilityOfElementLocated(
-            AppiumBy.xpath("//*[@content-desc='Dashboard' or contains(@text,'Dashboard') or contains(@content-desc,'dashboard')]")
+            AppiumBy.xpath("//android.view.View[@content-desc='Dashboard']")
         ));
     }
 
+    @SuppressWarnings("unused")
     private WebElement getQuickActionsTitle() {
         return driver.findElement(
             AppiumBy.xpath("//*[contains(@text, 'Quick Actions')]"));
     }
 
-    // Setup MFA action card
+    // Setup MFA action card - Button with content-desc
     private WebElement getSetupMfaCard() {
         return wait.until(ExpectedConditions.elementToBeClickable(
-            AppiumBy.xpath("//android.view.View[contains(@content-desc, 'Setup MFA') or " +
-                          ".//android.widget.TextView[@text='Setup MFA']]")));
+            AppiumBy.xpath("//android.widget.Button[contains(@content-desc, 'Setup MFA')]")));
     }
 
     // Edit Profile card
@@ -52,21 +53,25 @@ public class HomePage {
             AppiumBy.xpath("//android.view.View[contains(@content-desc, 'User Info')]"));
     }
 
-    // Logout button
+    // Logout button - IconButton in AppBar (ImageButton)
     private WebElement getLogoutButton() {
         try {
+            // Try finding by description or resource-id first
             return wait.until(ExpectedConditions.elementToBeClickable(
-                AppiumBy.accessibilityId("logout")
+                AppiumBy.xpath("//android.widget.ImageButton[@content-desc='Logout' or contains(@content-desc,'logout')]")
             ));
         } catch (Exception e1) {
             try {
+                // Flutter's IconButton typically shows as android.widget.ImageButton
+                // The logout icon should be the last ImageButton in the AppBar
                 return wait.until(ExpectedConditions.elementToBeClickable(
-                    AppiumBy.xpath("//*[@content-desc='Logout' or @text='Logout' or contains(@text,'Log out')]")
+                    AppiumBy.xpath("(//android.widget.ImageButton)[last()]")
                 ));
             } catch (Exception e2) {
-                // Fallback: any button that looks like logout by text
+                // Fallback: Find ImageButton near Dashboard View
                 return wait.until(ExpectedConditions.elementToBeClickable(
-                    AppiumBy.xpath("//android.widget.Button[contains(@text,'Logout') or contains(@text,'Log out')]")
+                    AppiumBy.xpath("//android.view.View[@content-desc='Dashboard']" +
+                                 "/ancestor::android.view.ViewGroup//android.widget.ImageButton[last()]")
                 ));
             }
         }
@@ -106,15 +111,17 @@ public class HomePage {
      * Click Setup MFA action card
      */
     public void clickSetupMfa() {
-        // Scroll to Setup MFA card if needed
+        // Scroll to Setup MFA button if needed
         try {
             driver.findElement(AppiumBy.androidUIAutomator(
                 "new UiScrollable(new UiSelector().scrollable(true))" +
-                ".scrollIntoView(new UiSelector().textContains(\"Setup MFA\"))"
+                ".scrollIntoView(new UiSelector().descriptionContains(\"Setup MFA\"))"
             ));
         } catch (Exception e) {
-            // Card already visible
+            // Button already visible
         }
+        
+        // Click the button
         getSetupMfaCard().click();
     }
 
@@ -175,7 +182,7 @@ public class HomePage {
         try {
             driver.findElement(AppiumBy.androidUIAutomator(
                 "new UiScrollable(new UiSelector().scrollable(true))" +
-                ".scrollIntoView(new UiSelector().textContains(\"Setup MFA\"))"
+                ".scrollIntoView(new UiSelector().descriptionContains(\"Setup MFA\"))"
             ));
             return getSetupMfaCard().isDisplayed();
         } catch (Exception e) {

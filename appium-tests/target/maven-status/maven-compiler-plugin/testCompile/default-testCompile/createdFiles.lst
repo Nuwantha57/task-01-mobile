@@ -1,8 +1,14 @@
+com\mobile\tests\DiagnosticTest.class
+com\mobile\tests\MfaTest.class
+com\mobile\tests\MfaVerificationDiagnosticTest.class
+com\mobile\pages\HomePage.class
+com\mobile\tests\MfaSetupNavigationTest.class
+com\mobile\utils\ConfigReader.class
+com\mobile\tests\LoginVerificationTest.class
 com\mobile\utils\TotpGenerator.class
 com\mobile\tests\BaseTest.class
 com\mobile\pages\MfaSetupPage.class
-com\mobile\tests\MfaTest.class
+com\mobile\tests\AppLaunchTest.class
 com\mobile\pages\LoginPage.class
-com\mobile\pages\HomePage.class
-com\mobile\utils\ConfigReader.class
 com\mobile\pages\MfaConfirmationPage.class
+com\mobile\tests\HomePageDiagnosticTest.class

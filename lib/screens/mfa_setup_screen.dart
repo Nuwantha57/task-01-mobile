@@ -13,6 +13,7 @@ class MfaSetupScreen extends StatefulWidget {
 class _MfaSetupScreenState extends State<MfaSetupScreen> {
   final AuthService _authService = AuthService();
   final _codeController = TextEditingController();
+  final _focusNode = FocusNode();
 
   String? _qrCodeUri;
   String? _secretKey;
@@ -29,6 +30,7 @@ class _MfaSetupScreenState extends State<MfaSetupScreen> {
   @override
   void dispose() {
     _codeController.dispose();
+    _focusNode.dispose();
     super.dispose();
   }
 
@@ -59,6 +61,10 @@ class _MfaSetupScreenState extends State<MfaSetupScreen> {
       _showError('Please enter a valid 6-digit code');
       return;
     }
+
+    // Dismiss keyboard
+    _focusNode.unfocus();
+    FocusScope.of(context).unfocus();
 
     setState(() => _isVerifying = true);
 
@@ -118,11 +124,17 @@ class _MfaSetupScreenState extends State<MfaSetupScreen> {
       appBar: AppBar(
         title: const Text('Setup MFA'),
       ),
-      body: _isLoading
-          ? const Center(child: CircularProgressIndicator())
-          : _setupComplete
-              ? _buildSuccessView()
-              : _buildSetupView(),
+      body: GestureDetector(
+        onTap: () {
+          // Dismiss keyboard when tapping outside
+          FocusScope.of(context).unfocus();
+        },
+        child: _isLoading
+            ? const Center(child: CircularProgressIndicator())
+            : _setupComplete
+                ? _buildSuccessView()
+                : _buildSetupView(),
+      ),
     );
   }
 
@@ -251,9 +263,14 @@ class _MfaSetupScreenState extends State<MfaSetupScreen> {
 
           TextField(
             controller: _codeController,
+            focusNode: _focusNode,
             keyboardType: TextInputType.number,
             textAlign: TextAlign.center,
             maxLength: 6,
+            inputFormatters: [
+              FilteringTextInputFormatter.digitsOnly,
+              LengthLimitingTextInputFormatter(6),
+            ],
             style: const TextStyle(
               fontSize: 24,
               letterSpacing: 8,
@@ -264,6 +281,11 @@ class _MfaSetupScreenState extends State<MfaSetupScreen> {
               hintText: '123456',
               counterText: '',
             ),
+            onSubmitted: (_) {
+              if (!_isVerifying && _codeController.text.length == 6) {
+                _verifyAndEnableMfa();
+              }
+            },
           ),
           const SizedBox(height: 20),
 
