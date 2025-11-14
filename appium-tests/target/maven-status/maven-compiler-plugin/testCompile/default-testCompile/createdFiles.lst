@@ -1,0 +1,7 @@
+com\mobile\tests\FixedLoginTest.class
+com\mobile\tests\LoginTest.class
+com\mobile\tests\FormInputTest.class
+com\mobile\tests\WorkingLoginTest.class
+com\mobile\tests\BaseTest.class
+com\mobile\pages\LoginPage.class
+com\mobile\tests\RobustRegistrationTest.class

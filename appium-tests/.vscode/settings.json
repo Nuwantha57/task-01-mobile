@@ -1,0 +1,9 @@
+{
+    "java.project.sourcePaths": [
+        "src/test/java"
+    ],
+    "java.project.outputPath": "target/classes",
+    "java.configuration.updateBuildConfiguration": "automatic",
+    "java.compile.nullAnalysis.mode": "automatic",
+    "maven.view": "hierarchical"
+}

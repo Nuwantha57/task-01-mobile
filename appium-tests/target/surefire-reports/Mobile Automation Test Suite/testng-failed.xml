@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Mobile Automation Test Suite]" guice-stage="DEVELOPMENT" verbose="0">
+  <test thread-count="5" name="Login Tests(failed)" verbose="0">
+    <classes>
+      <class name="com.mobile.tests.LoginTest">
+        <methods>
+          <include name="testEmptyFields"/>
+          <include name="setUp"/>
+          <include name="pageSetup"/>
+          <include name="testInvalidLogin"/>
+          <include name="tearDown"/>
+          <include name="testInvalidEmailFormat"/>
+          <include name="testLoginButtonState"/>
+          <include name="testValidLogin"/>
+          <include name="testSignUpNavigation"/>
+          <include name="testEmptyPassword"/>
+          <include name="testForgotPasswordNavigation"/>
+          <include name="testEmptyEmail"/>
+        </methods>
+      </class> <!-- com.mobile.tests.LoginTest -->
+    </classes>
+  </test> <!-- Login Tests(failed) -->
+</suite> <!-- Failed suite [Mobile Automation Test Suite] -->

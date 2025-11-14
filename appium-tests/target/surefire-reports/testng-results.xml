@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="8" passed="8" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2025-11-04T19:30:53 IST" name="Surefire suite" finished-at="2025-11-04T19:38:24 IST" duration-ms="451403">
+    <groups>
+    </groups>
+    <test started-at="2025-11-04T19:30:53 IST" name="Surefire test" finished-at="2025-11-04T19:38:24 IST" duration-ms="451403">
+      <class name="com.mobile.tests.PasswordResetTest">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.mobile.tests.PasswordResetTest@161479c6]" started-at="2025-11-04T19:30:53 IST" name="setUp" finished-at="2025-11-04T19:31:20 IST" duration-ms="26998" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method is-config="true" signature="pageSetup()[pri:0, instance:com.mobile.tests.PasswordResetTest@161479c6]" started-at="2025-11-04T19:31:20 IST" name="pageSetup" finished-at="2025-11-04T19:31:41 IST" duration-ms="20896" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- pageSetup -->
+        <test-method signature="testForgotPasswordPageDisplay()[pri:1, instance:com.mobile.tests.PasswordResetTest@161479c6]" started-at="2025-11-04T19:31:41 IST" name="testForgotPasswordPageDisplay" description="Verify forgot password page is displayed correctly" finished-at="2025-11-04T19:31:43 IST" duration-ms="2350" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testForgotPasswordPageDisplay -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.mobile.tests.PasswordResetTest@161479c6]" started-at="2025-11-04T19:31:43 IST" name="tearDown" finished-at="2025-11-04T19:31:45 IST" duration-ms="2137" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.mobile.tests.PasswordResetTest@161479c6]" started-at="2025-11-04T19:31:45 IST" name="setUp" finished-at="2025-11-04T19:32:10 IST" duration-ms="25313" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method is-config="true" signature="pageSetup()[pri:0, instance:com.mobile.tests.PasswordResetTest@161479c6]" started-at="2025-11-04T19:32:10 IST" name="pageSetup" finished-at="2025-11-04T19:32:31 IST" duration-ms="20886" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- pageSetup -->
+        <test-method signature="testEmailFieldValidation()[pri:2, instance:com.mobile.tests.PasswordResetTest@161479c6]" started-at="2025-11-04T19:32:31 IST" name="testEmailFieldValidation" description="Verify email field validation" finished-at="2025-11-04T19:32:37 IST" duration-ms="5730" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testEmailFieldValidation -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.mobile.tests.PasswordResetTest@161479c6]" started-at="2025-11-04T19:32:37 IST" name="tearDown" finished-at="2025-11-04T19:32:41 IST" duration-ms="3606" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.mobile.tests.PasswordResetTest@161479c6]" started-at="2025-11-04T19:32:41 IST" name="setUp" finished-at="2025-11-04T19:33:07 IST" duration-ms="26797" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method is-config="true" signature="pageSetup()[pri:0, instance:com.mobile.tests.PasswordResetTest@161479c6]" started-at="2025-11-04T19:33:07 IST" name="pageSetup" finished-at="2025-11-04T19:33:28 IST" duration-ms="20872" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- pageSetup -->
+        <test-method signature="testValidPasswordResetRequest()[pri:3, instance:com.mobile.tests.PasswordResetTest@161479c6]" started-at="2025-11-04T19:33:28 IST" name="testValidPasswordResetRequest" description="Test password reset request with valid email" finished-at="2025-11-04T19:33:55 IST" duration-ms="26698" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testValidPasswordResetRequest -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.mobile.tests.PasswordResetTest@161479c6]" started-at="2025-11-04T19:33:55 IST" name="tearDown" finished-at="2025-11-04T19:33:56 IST" duration-ms="1477" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.mobile.tests.PasswordResetTest@161479c6]" started-at="2025-11-04T19:33:56 IST" name="setUp" finished-at="2025-11-04T19:34:22 IST" duration-ms="25600" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method is-config="true" signature="pageSetup()[pri:0, instance:com.mobile.tests.PasswordResetTest@161479c6]" started-at="2025-11-04T19:34:22 IST" name="pageSetup" finished-at="2025-11-04T19:34:43 IST" duration-ms="21251" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- pageSetup -->
+        <test-method signature="testInvalidEmailPasswordReset()[pri:4, instance:com.mobile.tests.PasswordResetTest@161479c6]" started-at="2025-11-04T19:34:43 IST" name="testInvalidEmailPasswordReset" description="Test password reset request with non-existent email" finished-at="2025-11-04T19:34:50 IST" duration-ms="6524" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testInvalidEmailPasswordReset -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.mobile.tests.PasswordResetTest@161479c6]" started-at="2025-11-04T19:34:50 IST" name="tearDown" finished-at="2025-11-04T19:34:52 IST" duration-ms="1750" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.mobile.tests.PasswordResetTest@161479c6]" started-at="2025-11-04T19:34:52 IST" name="setUp" finished-at="2025-11-04T19:35:16 IST" duration-ms="24355" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method is-config="true" signature="pageSetup()[pri:0, instance:com.mobile.tests.PasswordResetTest@161479c6]" started-at="2025-11-04T19:35:16 IST" name="pageSetup" finished-at="2025-11-04T19:35:37 IST" duration-ms="20701" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- pageSetup -->
+        <test-method signature="testNavigationBackToLogin()[pri:5, instance:com.mobile.tests.PasswordResetTest@161479c6]" started-at="2025-11-04T19:35:37 IST" name="testNavigationBackToLogin" description="Test navigation back from forgot password page" finished-at="2025-11-04T19:35:39 IST" duration-ms="2293" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testNavigationBackToLogin -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.mobile.tests.PasswordResetTest@161479c6]" started-at="2025-11-04T19:35:39 IST" name="tearDown" finished-at="2025-11-04T19:35:40 IST" duration-ms="1420" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.mobile.tests.PasswordResetTest@161479c6]" started-at="2025-11-04T19:35:40 IST" name="setUp" finished-at="2025-11-04T19:36:06 IST" duration-ms="25555" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method is-config="true" signature="pageSetup()[pri:0, instance:com.mobile.tests.PasswordResetTest@161479c6]" started-at="2025-11-04T19:36:06 IST" name="pageSetup" finished-at="2025-11-04T19:36:27 IST" duration-ms="20641" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- pageSetup -->
+        <test-method signature="testEmailFieldInteractions()[pri:6, instance:com.mobile.tests.PasswordResetTest@161479c6]" started-at="2025-11-04T19:36:27 IST" name="testEmailFieldInteractions" description="Test email field interactions and state" finished-at="2025-11-04T19:36:28 IST" duration-ms="1592" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testEmailFieldInteractions -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.mobile.tests.PasswordResetTest@161479c6]" started-at="2025-11-04T19:36:28 IST" name="tearDown" finished-at="2025-11-04T19:36:30 IST" duration-ms="1616" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.mobile.tests.PasswordResetTest@161479c6]" started-at="2025-11-04T19:36:30 IST" name="setUp" finished-at="2025-11-04T19:36:54 IST" duration-ms="24019" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method is-config="true" signature="pageSetup()[pri:0, instance:com.mobile.tests.PasswordResetTest@161479c6]" started-at="2025-11-04T19:36:54 IST" name="pageSetup" finished-at="2025-11-04T19:37:15 IST" duration-ms="21163" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- pageSetup -->
+        <test-method signature="testLoadingStates()[pri:7, instance:com.mobile.tests.PasswordResetTest@161479c6]" started-at="2025-11-04T19:37:15 IST" name="testLoadingStates" description="Test forgot password page loading states" finished-at="2025-11-04T19:37:23 IST" duration-ms="7958" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testLoadingStates -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.mobile.tests.PasswordResetTest@161479c6]" started-at="2025-11-04T19:37:23 IST" name="tearDown" finished-at="2025-11-04T19:37:25 IST" duration-ms="1917" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.mobile.tests.PasswordResetTest@161479c6]" started-at="2025-11-04T19:37:25 IST" name="setUp" finished-at="2025-11-04T19:37:52 IST" duration-ms="27443" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method is-config="true" signature="pageSetup()[pri:0, instance:com.mobile.tests.PasswordResetTest@161479c6]" started-at="2025-11-04T19:37:52 IST" name="pageSetup" finished-at="2025-11-04T19:38:13 IST" duration-ms="20817" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- pageSetup -->
+        <test-method signature="testCompleteForgotPasswordFlow()[pri:8, instance:com.mobile.tests.PasswordResetTest@161479c6]" started-at="2025-11-04T19:38:13 IST" name="testCompleteForgotPasswordFlow" description="Test complete forgot password flow" finished-at="2025-11-04T19:38:22 IST" duration-ms="9391" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testCompleteForgotPasswordFlow -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.mobile.tests.PasswordResetTest@161479c6]" started-at="2025-11-04T19:38:22 IST" name="tearDown" finished-at="2025-11-04T19:38:24 IST" duration-ms="1564" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- com.mobile.tests.PasswordResetTest -->
+    </test> <!-- Surefire test -->
+  </suite> <!-- Surefire suite -->
+</testng-results>
