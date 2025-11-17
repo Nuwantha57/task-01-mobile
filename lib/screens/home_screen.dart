@@ -3,6 +3,8 @@ import '../services/auth_service.dart';
 import '../services/api_service.dart';
 import 'login_screen.dart';
 import 'profile_screen.dart';
+import 'leave_screen.dart';
+import 'attendance_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -184,6 +186,32 @@ class _HomeScreenState extends State<HomeScreen> {
                           ),
                         ),
                         const SizedBox(height: 16),
+                        _buildActionCard(
+                          icon: Icons.event_note,
+                          title: 'Leave Management',
+                          subtitle: 'Apply leave & view balance',
+                          onTap: () {
+                            Navigator.of(context).push(
+                              MaterialPageRoute(
+                                builder: (_) => const LeaveScreen(),
+                              ),
+                            );
+                          },
+                        ),
+                        const SizedBox(height: 12),
+                        _buildActionCard(
+                          icon: Icons.access_time,
+                          title: 'Attendance',
+                          subtitle: 'Clock in/out with location',
+                          onTap: () {
+                            Navigator.of(context).push(
+                              MaterialPageRoute(
+                                builder: (_) => const AttendanceScreen(),
+                              ),
+                            );
+                          },
+                        ),
+                        const SizedBox(height: 12),
                         _buildActionCard(
                           icon: Icons.person_outline,
                           title: 'Edit Profile',

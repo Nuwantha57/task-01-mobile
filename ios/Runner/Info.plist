@@ -45,5 +45,10 @@
 	<true/>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
+	<!-- Location permissions for attendance tracking -->
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>This app needs access to your location to record attendance with location data.</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>This app needs access to your location to record attendance with location data.</string>
 </dict>
 </plist>
