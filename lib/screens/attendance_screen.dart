@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:intl/intl.dart';
 import '../services/api_service.dart';
+import '../models/attendance.dart';
 
 class AttendanceScreen extends StatefulWidget {
   const AttendanceScreen({super.key});
@@ -17,6 +18,46 @@ class _AttendanceScreenState extends State<AttendanceScreen> {
   Position? _currentPosition;
   String? _lastAction;
   DateTime? _lastActionTime;
+  List<AttendanceRecord> _attendanceRecords = [];
+  bool _isLoadingRecords = false;
+
+  @override
+  void initState() {
+    super.initState();
+    _loadAttendanceRecords();
+  }
+
+  Future<void> _loadAttendanceRecords() async {
+    setState(() {
+      _isLoadingRecords = true;
+    });
+
+    try {
+      final records = await _apiService.getAttendanceRecords();
+      if (mounted) {
+        setState(() {
+          _attendanceRecords = records;
+        });
+      }
+    } catch (e) {
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text(
+              'Failed to load attendance records: ${e.toString().replaceAll('Exception: ', '')}',
+            ),
+            backgroundColor: Colors.orange,
+          ),
+        );
+      }
+    } finally {
+      if (mounted) {
+        setState(() {
+          _isLoadingRecords = false;
+        });
+      }
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -226,6 +267,117 @@ class _AttendanceScreenState extends State<AttendanceScreen> {
                   ),
                 ),
               ),
+            const SizedBox(height: 24),
+
+            // Attendance Records Section
+            Card(
+              child: Padding(
+                padding: const EdgeInsets.all(16),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        const Text(
+                          'Attendance History',
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 18,
+                          ),
+                        ),
+                        IconButton(
+                          icon: const Icon(Icons.refresh),
+                          onPressed:
+                              _isLoadingRecords ? null : _loadAttendanceRecords,
+                          tooltip: 'Refresh',
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 16),
+                    _isLoadingRecords
+                        ? const Center(
+                            child: Padding(
+                              padding: EdgeInsets.all(16.0),
+                              child: CircularProgressIndicator(),
+                            ),
+                          )
+                        : _attendanceRecords.isEmpty
+                            ? const Padding(
+                                padding: EdgeInsets.all(16.0),
+                                child: Center(
+                                  child: Text(
+                                    'No attendance records found',
+                                    style: TextStyle(color: Colors.grey),
+                                  ),
+                                ),
+                              )
+                            : SingleChildScrollView(
+                                scrollDirection: Axis.horizontal,
+                                child: DataTable(
+                                  columns: const [
+                                    DataColumn(label: Text('Date')),
+                                    DataColumn(label: Text('Time')),
+                                    DataColumn(label: Text('Type')),
+                                    DataColumn(label: Text('Location')),
+                                  ],
+                                  rows: _attendanceRecords.map((record) {
+                                    return DataRow(
+                                      cells: [
+                                        DataCell(
+                                          Text(
+                                            DateFormat('MMM d, yyyy')
+                                                .format(record.timestamp),
+                                          ),
+                                        ),
+                                        DataCell(
+                                          Text(
+                                            DateFormat('hh:mm a')
+                                                .format(record.timestamp),
+                                          ),
+                                        ),
+                                        DataCell(
+                                          Container(
+                                            padding: const EdgeInsets.symmetric(
+                                              horizontal: 8,
+                                              vertical: 4,
+                                            ),
+                                            decoration: BoxDecoration(
+                                              color: record.type == 'clock-in'
+                                                  ? Colors.green[100]
+                                                  : Colors.orange[100],
+                                              borderRadius:
+                                                  BorderRadius.circular(12),
+                                            ),
+                                            child: Text(
+                                              record.type == 'clock-in'
+                                                  ? 'Clock In'
+                                                  : 'Clock Out',
+                                              style: TextStyle(
+                                                color: record.type == 'clock-in'
+                                                    ? Colors.green[900]
+                                                    : Colors.orange[900],
+                                                fontWeight: FontWeight.bold,
+                                                fontSize: 12,
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                        DataCell(
+                                          Text(
+                                            record.location ?? 'N/A',
+                                            overflow: TextOverflow.ellipsis,
+                                          ),
+                                        ),
+                                      ],
+                                    );
+                                  }).toList(),
+                                ),
+                              ),
+                  ],
+                ),
+              ),
+            ),
           ],
         ),
       ),
@@ -330,6 +482,9 @@ class _AttendanceScreenState extends State<AttendanceScreen> {
         _lastActionTime = DateTime.now();
       });
 
+      // Refresh attendance records
+      await _loadAttendanceRecords();
+
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
           content: Text('Clocked in successfully!'),
@@ -390,6 +545,9 @@ class _AttendanceScreenState extends State<AttendanceScreen> {
         _lastAction = 'Clock Out';
         _lastActionTime = DateTime.now();
       });
+
+      // Refresh attendance records
+      await _loadAttendanceRecords();
 
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(

@@ -311,4 +311,58 @@ class ApiService {
           'Failed to clock out: ${response.statusCode}');
     }
   }
+
+  // Get attendance records
+  Future<List<AttendanceRecord>> getAttendanceRecords({
+    String? userId,
+    DateTime? startDate,
+    DateTime? endDate,
+  }) async {
+    final token = await _getToken();
+    if (token == null) {
+      throw Exception('No authentication token found');
+    }
+
+    // Get user data if userId not provided
+    String actualUserId = userId ?? '';
+    if (actualUserId.isEmpty) {
+      final userData = await getCurrentUser();
+      actualUserId = userData['id'];
+    }
+
+    // Build query parameters
+    final queryParams = <String, String>{
+      'user_id': actualUserId,
+    };
+
+    if (startDate != null) {
+      queryParams['start_date'] = startDate.toIso8601String().split('T')[0];
+    }
+    if (endDate != null) {
+      queryParams['end_date'] = endDate.toIso8601String().split('T')[0];
+    }
+
+    final uri = Uri.parse('$leaveAttendanceBaseUrl/attendance/records')
+        .replace(queryParameters: queryParams);
+
+    final response = await http.get(
+      uri,
+      headers: {
+        'Authorization': 'Bearer $token',
+        'Content-Type': 'application/json',
+      },
+    );
+
+    if (response.statusCode == 200) {
+      final List<dynamic> data = json.decode(response.body);
+      return data.map((json) => AttendanceRecord.fromJson(json)).toList();
+    } else if (response.statusCode == 401) {
+      await clearToken();
+      throw Exception('Unauthorized - please login again');
+    } else {
+      final errorBody = json.decode(response.body);
+      throw Exception(errorBody['message'] ??
+          'Failed to fetch attendance records: ${response.statusCode}');
+    }
+  }
 }
