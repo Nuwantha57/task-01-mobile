@@ -11,8 +11,8 @@ dependencies:
     sdk: flutter
 
   # AWS Amplify for Cognito Authentication
-  amplify_flutter: ^2.0.0
-  amplify_auth_cognito: ^2.0.0
+  amplify_flutter: ^2.7.0
+  amplify_auth_cognito: ^2.7.0
   shared_preferences: ^2.2.0
   qr_flutter: ^4.1.0
 
